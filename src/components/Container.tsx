@@ -15,13 +15,14 @@ const _Container = styled.div<_ContainerProps>`
   padding: 0 40px;
   margin: 0 auto;
   max-width: 960px;
-  /* border: 1px solid red; */
+
   ${({ content }) =>
-    content &&
-    css`
-      padding-top: 24px;
-      line-height: 1.5;
-    `}
+    content
+      ? css`
+          padding-top: 24px;
+          line-height: 1.5;
+        `
+      : null}
 `
 
 export const Container: React.FC<Props> = ({ children, content = false }) => {

@@ -10,5 +10,4 @@ export const Character = styled.div`
   position: relative;
   display: block;
   cursor: pointer;
-  border: 1px solid red;
 `
