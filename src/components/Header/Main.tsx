@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-import { Box } from "@dreitagebart/box"
+import styled from "styled-components"
 
 import { Intro } from "./Intro"
 import { Me } from "../Me"
@@ -8,26 +8,38 @@ import { Container } from "../Container"
 
 interface Props {}
 
+const _Wrapper = styled.div`
+  padding-top: 12px;
+  height: 420px;
+  background: linear-gradient(to right, #222222 0%, #333333 50%, #222222 100%);
+  color: #efefef;
+  font-weight: lighter;
+  letter-spacing: 1;
+  border-bottom: 1px solid #efefef;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+  @media only screen and (max-width: 600px) {
+    & {
+      height: 210px;
+    }
+
+    & .Typist {
+      font-size: 32px;
+    }
+  }
+`
+
 export const MainHeader: React.FC<Props> = () => {
   return (
     <Fragment>
-      <Box
-        padding={{ top: 12 }}
-        height={420}
-        background="linear-gradient(to right, #222222 0%, #333333 50%, #222222 100%)"
-        style={{
-          color: "#efefef",
-          fontWeight: "lighter",
-          letterSpacing: 1
-        }}
-        border={{ bottom: "1px solid #fff" }}
-        shadow="md"
-      >
+      <_Wrapper>
         <Container>
           <Menu></Menu>
         </Container>
         <Intro></Intro>
-      </Box>
+      </_Wrapper>
       <Me></Me>
     </Fragment>
   )

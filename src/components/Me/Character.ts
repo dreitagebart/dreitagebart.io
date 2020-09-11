@@ -10,4 +10,11 @@ export const Character = styled.div`
   position: relative;
   display: block;
   cursor: pointer;
+
+  @media only screen and (max-width: 600px) {
+    & {
+      transform: scale(0.7);
+      top: -120px;
+    }
+  }
 `

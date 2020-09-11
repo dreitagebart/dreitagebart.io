@@ -16,10 +16,19 @@ ${normalize()}
   box-sizing: border-box;
 }
 
+#___gatsby{
+  overflow: hidden;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   background: #efefef;
   font-family: 'Roboto Condensed', sans-serif;
-  padding-bottom: 100px;
+  font-size: 18px;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -36,11 +45,19 @@ a:hover {
   color: #888;
 }
 
+.Typist {
+  user-select: none;
+  text-align: center;
+}
+
 .Typist .Cursor {
-  display: inline-block; }
-  .Typist .Cursor--blinking {
-    opacity: 1;
-    animation: blink 1s linear infinite; }
+  display: inline-block; 
+}
+
+.Typist .Cursor--blinking {
+  opacity: 1;
+  animation: blink 1s linear infinite; 
+}
 
 @keyframes blink {
   0% {

@@ -1,29 +1,40 @@
-import React, { Fragment } from "react"
-import { Box } from "@dreitagebart/box"
+import React from "react"
+import styled from "styled-components"
 
 import { Menu } from "./Menu"
 import { Container } from "../Container"
+import { useWindowSize } from "../../hooks"
 
 interface Props {}
 
+const _Wrapper = styled.div`
+  padding: 12px 0;
+  background: linear-gradient(to right, #222222 0%, #333333 50%, #222222 100%);
+  color: #efefef;
+  font-weight: lighter;
+  letter-spacing: 1;
+  border-bottom: 1px solid #efefef;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+`
+
 export const PageHeader: React.FC<Props> = () => {
+  const size = useWindowSize()
+
   return (
-    <Box
-      background="linear-gradient(to right, #222222 0%, #444444 50%, #222222 100%)"
-      style={{
-        color: "#efefef",
-        fontWeight: "lighter",
-        letterSpacing: 1
-      }}
-      padding={{ vertical: 12 }}
-      border={{ bottom: "1px solid #fff" }}
-      shadow="md"
-    >
+    <_Wrapper>
       <Container>
         <Menu>
-          <div>dreitagebart</div>
+          {size.width
+            ? size.width > 600 && (
+                <div>
+                  <strong>dreitagebart.io</strong>
+                </div>
+              )
+            : null}
         </Menu>
       </Container>
-    </Box>
+    </_Wrapper>
   )
 }

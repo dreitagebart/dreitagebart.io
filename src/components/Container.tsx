@@ -7,7 +7,7 @@ interface Props {
 }
 
 interface _ContainerProps {
-  content: boolean
+  isContent: boolean
 }
 
 const _Container = styled.div<_ContainerProps>`
@@ -16,15 +16,15 @@ const _Container = styled.div<_ContainerProps>`
   margin: 0 auto;
   max-width: 960px;
 
-  ${({ content }) =>
-    content
-      ? css`
-          padding-top: 24px;
-          line-height: 1.5;
-        `
-      : null}
+  ${({ isContent }) =>
+    isContent &&
+    css`
+      padding: 20px 40px;
+      padding-bottom: 100px;
+      line-height: 1.5;
+    `}
 `
 
 export const Container: React.FC<Props> = ({ children, content = false }) => {
-  return <_Container content={content}>{children}</_Container>
+  return <_Container isContent={content}>{children}</_Container>
 }

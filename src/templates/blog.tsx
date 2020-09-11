@@ -1,12 +1,21 @@
 import React from "react"
+import styled from "styled-components"
 import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+
 import { PageLayout } from "../layouts"
 
 interface Props {
   data: any
   pageContext: any
 }
+
+const _Small = styled.div`
+  font-size: 14px;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+`
 
 const Blog: React.FC<Props> = ({ data, pageContext }) => {
   const post = data.mdx
@@ -15,7 +24,7 @@ const Blog: React.FC<Props> = ({ data, pageContext }) => {
   return (
     <PageLayout>
       <h1>{post.frontmatter.title}</h1>
-      <p>{post.frontmatter.date}</p>
+      <_Small>{post.frontmatter.date}</_Small>
       <MDXRenderer>{post.body}</MDXRenderer>
       <ul
         style={{
@@ -60,7 +69,7 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "dddd, Do MMMM YYYY - HH:mm")
         description
       }
     }

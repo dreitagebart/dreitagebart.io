@@ -8,7 +8,10 @@ interface Props extends SEOProps {
   children: any
 }
 
-const _Wrapper = styled.div``
+const _Wrapper = styled.div`
+  position: relative;
+  min-height: 100vh;
+`
 
 export const MainLayout: React.FC<Props> = ({ children, title, keywords }) => {
   return (

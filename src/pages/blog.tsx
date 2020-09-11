@@ -1,4 +1,5 @@
 import React from "react"
+import styled from "styled-components"
 import { graphql, Link } from "gatsby"
 
 import { PageLayout } from "../layouts"
@@ -7,20 +8,33 @@ interface Props {
   data: any
 }
 
+const _Title = styled.h2`
+  margin-bottom: 12px;
+`
+
+const _Small = styled.div`
+  font-size: 14px;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  margin: 12px 0;
+`
+
 const Page: React.FC<Props> = ({ data, ...props }) => {
   return (
     <PageLayout title="blog">
       <h1>Blog</h1>
       {data.allMdx.edges.map((edge: any) => {
         return (
-          <div style={{ marginBottom: 20 }}>
-            <h3>
+          <div key={edge.node.id} style={{ marginBottom: 20 }}>
+            <_Title>
               <Link to={`/blog${edge.node.fields.slug}`}>
                 {edge.node.frontmatter.title}
               </Link>
-            </h3>
-            <p>{edge.node.frontmatter.date}</p>
-            <p dangerouslySetInnerHTML={{ __html: edge.node.excerpt }}></p>
+            </_Title>
+            <div dangerouslySetInnerHTML={{ __html: edge.node.excerpt }}></div>
+            <_Small title={edge.node.frontmatter.date}>
+              {edge.node.frontmatter.fromNow}
+            </_Small>
           </div>
         )
       })}
@@ -40,12 +54,14 @@ export const pageQuery = graphql`
     allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
+          id
           excerpt
           fields {
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "dddd, Do MMMM YYYY - HH:mm")
+            fromNow: date(fromNow: true)
             title
             description
           }

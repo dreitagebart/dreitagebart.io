@@ -2,10 +2,13 @@ import React from "react"
 import { Box } from "@dreitagebart/box"
 import { Link } from "gatsby"
 
-export const Menu: React.FC = () => {
+interface Props {}
+
+export const Menu: React.FC<Props> = ({ children }) => {
   return (
     <Box direction="row" align="center" justify="between">
       <Box direction="row" gutter={20} width="100%" align="center">
+        {children}
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/blog">Blog</Link>

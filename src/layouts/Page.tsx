@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React from "react"
 import styled from "styled-components"
 
 import { SEO, Footer, PageHeader, Container } from "../components"
@@ -8,7 +8,10 @@ interface Props extends SEOProps {
   children: any
 }
 
-const _Wrapper = styled.div``
+const _Wrapper = styled.div`
+  position: relative;
+  min-height: 100vh;
+`
 
 export const PageLayout: React.FC<Props> = ({ children, title, keywords }) => {
   return (

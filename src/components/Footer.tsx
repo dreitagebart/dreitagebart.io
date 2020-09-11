@@ -6,33 +6,33 @@ import { Box } from "@dreitagebart/box"
 
 interface Props {}
 
+const _Wrapper = styled.div`
+  background: linear-gradient(to right, #111111 0%, #333333 50%, #111111 100%);
+  border-top: 1px solid #efefef;
+  box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.2);
+  font-weight: lighter;
+  color: #efefef;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+`
+
 export const Footer: React.FC<Props> = () => {
   return (
-    <Box
-      background="linear-gradient(to right, #222222 0%, #333333 50%, #222222 100%)"
-      border={{ top: "1px solid #fff" }}
-      shadow="md"
-      style={{
-        fontWeight: "lighter",
-        color: "#efefef",
-        position: "fixed",
-        bottom: 0,
-        right: 0,
-        left: 0
-      }}
-      height={80}
-    >
+    <_Wrapper>
       <Container>
         <Box
           direction="row"
           align="center"
           justify="between"
-          margin={{ top: 20 }}
+          margin={{ vertical: 20 }}
         >
           <div>dreitagebart.io &copy; 2020</div>
           <div>Something more</div>
         </Box>
       </Container>
-    </Box>
+    </_Wrapper>
   )
 }
