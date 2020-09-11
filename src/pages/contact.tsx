@@ -46,6 +46,12 @@ const _Text = styled.textarea`
   border: 1px solid #afafaf;
 `
 
+const encode = (data: any) => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
+}
+
 const Page: React.FC = () => {
   const [form, setForm] = useState({
     name: "",
