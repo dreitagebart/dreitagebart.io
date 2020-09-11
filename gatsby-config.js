@@ -23,11 +23,19 @@ module.exports = {
     "gatsby-plugin-offline",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    "gatsby-plugin-root-import",
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        path: `${__dirname}/src/assets/markdown`,
+        path: `${__dirname}/content/blog`,
         name: "blog"
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/assets`,
+        name: "assets"
       }
     },
     {

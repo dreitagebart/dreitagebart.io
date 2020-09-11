@@ -12,6 +12,7 @@ export const MainHeader: React.FC<Props> = () => {
   return (
     <Fragment>
       <Box
+        padding={{ top: 12 }}
         height={420}
         background="linear-gradient(to right, #222222 0%, #333333 50%, #222222 100%)"
         style={{

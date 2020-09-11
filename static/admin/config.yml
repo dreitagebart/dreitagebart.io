@@ -2,13 +2,13 @@ backend:
   name: github
   repo: dreitagebart/dreitagebart.io
 
-media_folder: static/images/uploads
+media_folder: content/assets
 public_folder: ../assets
 
 collections:
   - name: blog
     label: Blog
-    folder: src/assets/markdown
+    folder: content/blog
     create: true
     fields:
       - { name: path, label: Path }
