@@ -31,6 +31,12 @@ const _Github = styled.div`
   }
 `
 
+const _Telegram = styled.div`
+  a:hover {
+    color: #32afed;
+  }
+`
+
 const _YouTube = styled.div`
   a:hover {
     color: #ff0000;
@@ -70,7 +76,10 @@ export const Footer: React.FC<Props> = () => {
           </Box>
           <Box direction="row" align="center" gutter={12}>
             <_Amazon>
-              <a href="https://www.amazon.de/hz/wishlist/ls/1P4185Y05ABYP?ref_=wl_share">
+              <a
+                href="https://www.amazon.de/hz/wishlist/ls/1P4185Y05ABYP?ref_=wl_share"
+                target="_blank"
+              >
                 <i className="bx bxl-amazon bx-sm"></i>
               </a>
             </_Amazon>
@@ -84,6 +93,11 @@ export const Footer: React.FC<Props> = () => {
                 <i className="bx bxl-paypal bx-sm"></i>
               </a>
             </_PayPal>
+            <_Telegram>
+              <a href="https://t.me/dreitagebart" target="_blank">
+                <i className="bx bxl-telegram bx-sm"></i>
+              </a>
+            </_Telegram>
             <_YouTube>
               <a
                 href="https://www.youtube.com/c/StefanB%C3%BCchold/playlists"

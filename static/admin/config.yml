@@ -2,6 +2,8 @@ backend:
   name: github
   repo: dreitagebart/dreitagebart.io
 
+site_url: https://www.dreitagebart.io
+publish_mode: editorial_workflow
 media_folder: content/assets
 public_folder: ../assets
 
@@ -11,7 +13,7 @@ collections:
     folder: content/blog
     create: true
     fields:
-      - { name: path, label: Path }
+      - { name: path, label: Slug }
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: description, label: Description }
