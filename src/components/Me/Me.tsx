@@ -24,6 +24,7 @@ export const Me: React.FC<Props> = () => {
 
   return (
     <Character
+      id="me"
       onMouseOver={() => setHovered(true)}
       onMouseOut={() => setHovered(false)}
     >

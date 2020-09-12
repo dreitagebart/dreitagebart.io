@@ -1,12 +1,24 @@
 import React from "react"
+import styled from "styled-components"
 import { Box } from "@dreitagebart/box"
 import { Link } from "gatsby"
 
 interface Props {}
 
+const _Menu = styled(Box)`
+  & a {
+    transition: all 300ms ease-in;
+    color: #efefef;
+  }
+
+  & a:hover {
+    color: #cfcfcf;
+  }
+`
+
 export const Menu: React.FC<Props> = ({ children }) => {
   return (
-    <Box direction="row" align="center" justify="between">
+    <_Menu direction="row" align="center" justify="between">
       <Box direction="row" gutter={20} width="100%" align="center">
         {children}
         <Link to="/">Home</Link>
@@ -19,6 +31,6 @@ export const Menu: React.FC<Props> = ({ children }) => {
           <i className="bx bxl-github bx-md"></i>
         </a>
       </Box>
-    </Box>
+    </_Menu>
   )
 }

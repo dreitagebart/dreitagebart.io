@@ -4,6 +4,7 @@ import styled from "styled-components"
 import { Menu } from "./Menu"
 import { Container } from "../Container"
 import { useWindowSize } from "../../hooks"
+import { Link } from "gatsby"
 
 interface Props {}
 
@@ -29,7 +30,9 @@ export const PageHeader: React.FC<Props> = () => {
           {size.width
             ? size.width > 600 && (
                 <div>
-                  <strong>dreitagebart.io</strong>
+                  <Link to="/">
+                    <strong>dreitagebart.io</strong>
+                  </Link>
                 </div>
               )
             : null}
