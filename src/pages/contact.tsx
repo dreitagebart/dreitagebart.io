@@ -28,10 +28,17 @@ const Page: React.FC = () => {
       <h2>Get in touch</h2>
       <Form
         data-netlify="true"
+        data-netlify-honeypot="bot-field"
         name="Contact Form"
         method="post"
         action="/thank-you"
       >
+        <div className="hidden">
+          <label>
+            Don't do it:
+            <input name="bot-field" />
+          </label>
+        </div>
         <input type="hidden" name="form-name" value="Contact Form" />
         <Group>
           <Label>
