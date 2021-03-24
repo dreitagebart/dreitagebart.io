@@ -33,12 +33,6 @@ const Page: React.FC = () => {
         method="post"
         action="/thank-you"
       >
-        <div className="hidden">
-          <label>
-            Don't do it:
-            <input name="bot-field" />
-          </label>
-        </div>
         <input type="hidden" name="form-name" value="Contact Form" />
         <Group>
           <Label>
@@ -77,6 +71,12 @@ const Page: React.FC = () => {
         <Group>
           <Button type="submit">Send me</Button>
         </Group>
+        <div style={{ visibility: "hidden" }}>
+          <label>
+            Don't do it:
+            <input name="bot-field" />
+          </label>
+        </div>
       </Form>
     </PageLayout>
   )
