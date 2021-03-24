@@ -1,19 +1,16 @@
 import React, { useState } from "react"
-import styled from "styled-components"
 
-import { Form, Label, TextInput, TextArea, Submit, Group } from "../components"
+import {
+  Form,
+  Label,
+  TextInput,
+  TextArea,
+  Button,
+  Group,
+  Title,
+  SubTitle
+} from "../components"
 import { PageLayout } from "../layouts"
-
-const _Title = styled.div`
-  color: #666;
-  font-size: 16px;
-`
-
-const encode = (data: any) => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&")
-}
 
 const Page: React.FC = () => {
   const [form, setForm] = useState({
@@ -26,30 +23,20 @@ const Page: React.FC = () => {
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => setForm({ ...form, [event.target.name]: event.target.value })
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...form })
-    })
-      .then(() => alert("Success!"))
-      .catch(error => alert(error))
-
-    event.preventDefault()
-  }
-
   return (
     <PageLayout title="contact">
-      <h1>Contact</h1>
+      <h2>Get in touch</h2>
       <Form
         data-netlify="true"
-        name="contact"
+        name="Contact Form"
         method="post"
-        onSubmit={handleSubmit}
+        action="/thank-you"
       >
+        <input type="hidden" name="form-name" value="Contact Form" />
         <Group>
           <Label>
-            <_Title>Your name</_Title>
+            <Title>Your name</Title>
+            <SubTitle>How should I call you?</SubTitle>
             <TextInput
               name="name"
               value={form.name}
@@ -59,7 +46,8 @@ const Page: React.FC = () => {
         </Group>
         <Group>
           <Label>
-            <_Title>Your eMail</_Title>
+            <Title>Your eMail</Title>
+            <SubTitle>You won't get spam from me... I promise</SubTitle>
             <TextInput
               name="mail"
               type="email"
@@ -70,7 +58,8 @@ const Page: React.FC = () => {
         </Group>
         <Group>
           <Label>
-            <_Title>Your message</_Title>
+            <Title>Your message</Title>
+            <SubTitle>What's on your mind... tell me.</SubTitle>
             <TextArea
               name="message"
               value={form.message}
@@ -79,7 +68,7 @@ const Page: React.FC = () => {
           </Label>
         </Group>
         <Group>
-          <Submit>Send me</Submit>
+          <Button type="submit">Send me</Button>
         </Group>
       </Form>
     </PageLayout>

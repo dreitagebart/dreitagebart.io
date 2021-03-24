@@ -1,41 +1,28 @@
 import React from "react"
-import styled from "styled-components"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 
 import { PageLayout } from "../layouts"
+import { BlogMeta, BlogTitle, Blog } from "../components"
 
 interface Props {
   data: any
 }
 
-const _Title = styled.h2`
-  margin-bottom: 12px;
-`
-
-const _Small = styled.div`
-  font-size: 14px;
-  font-weight: lighter;
-  letter-spacing: 1px;
-  margin: 12px 0;
-`
-
-const Page: React.FC<Props> = ({ data, ...props }) => {
+const Page: React.FC<Props> = ({ data }) => {
   return (
     <PageLayout title="blog">
-      <h1>Blog</h1>
+      <h2>Blog</h2>
       {data.allMdx.edges.map((edge: any) => {
         return (
-          <div key={edge.node.id} style={{ marginBottom: 20 }}>
-            <_Title>
-              <Link to={`/blog${edge.node.fields.slug}`}>
-                {edge.node.frontmatter.title}
-              </Link>
-            </_Title>
-            <div dangerouslySetInnerHTML={{ __html: edge.node.excerpt }}></div>
-            <_Small title={edge.node.frontmatter.date}>
+          <Blog key={edge.node.id}>
+            <BlogTitle to={`/blog${edge.node.fields.slug}`}>
+              {edge.node.frontmatter.title}
+            </BlogTitle>
+            <BlogMeta title={edge.node.frontmatter.date}>
               {edge.node.frontmatter.fromNow}
-            </_Small>
-          </div>
+            </BlogMeta>
+            <div dangerouslySetInnerHTML={{ __html: edge.node.excerpt }}></div>
+          </Blog>
         )
       })}
     </PageLayout>

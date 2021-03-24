@@ -1,8 +1,9 @@
 import React from "react"
+
 import { MainLayout } from "../layouts"
 
 const Page: React.FC = () => {
-  return <MainLayout>&nbsp;</MainLayout>
+  return <MainLayout></MainLayout>
 }
 
 export default Page

@@ -1,43 +1,17 @@
 import React from "react"
-import styled from "styled-components"
 
-import { Menu } from "./Menu"
 import { Container } from "../Container"
-import { useWindowSize } from "../../hooks"
-import { Link } from "gatsby"
+import { _Page } from "./Styled"
+import { Menu } from "../Menu"
 
 interface Props {}
 
-const _Wrapper = styled.div`
-  padding: 12px 0;
-  background: linear-gradient(to right, #222222 0%, #333333 50%, #222222 100%);
-  color: #efefef;
-  font-weight: lighter;
-  letter-spacing: 1;
-  border-bottom: 1px solid #efefef;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-`
-
 export const PageHeader: React.FC<Props> = () => {
-  const size = useWindowSize()
-
   return (
-    <_Wrapper>
+    <_Page>
       <Container>
-        <Menu>
-          {size.width
-            ? size.width > 600 && (
-                <div>
-                  <Link to="/">
-                    <strong>dreitagebart.io</strong>
-                  </Link>
-                </div>
-              )
-            : null}
-        </Menu>
+        <Menu></Menu>
       </Container>
-    </_Wrapper>
+    </_Page>
   )
 }

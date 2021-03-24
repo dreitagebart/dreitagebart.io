@@ -1,21 +1,23 @@
 import React, { useState } from "react"
 
-import { Character } from "./Character"
-import { Steam } from "./Steam"
-import { Tea } from "./Tea"
-import { Chair } from "./Chair"
-import { LeftShoe } from "./LeftShoe"
-import { RightShoe } from "./RightShoe"
-import { Legs } from "./Legs"
-import { Torso } from "./Torso"
-import { Body } from "./Body"
-import { LeftArm } from "./LeftArm"
-import { RightArm } from "./RightArm"
-import { Head } from "./Head"
-import { Cappy } from "./Cappy"
-import { Glasses } from "./Glasses"
-import { Eyes } from "./Eyes"
-import { Notebook } from "./Notebook"
+import {
+  Character,
+  Steam,
+  Tea,
+  Chair,
+  LeftShoe,
+  RightShoe,
+  Legs,
+  Body,
+  Cappy,
+  Eyes,
+  Glasses,
+  Head,
+  LeftArm,
+  RightArm,
+  Notebook,
+  Torso
+} from "./Styled"
 
 interface Props {}
 

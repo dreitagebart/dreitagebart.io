@@ -23,7 +23,6 @@ module.exports = {
     "gatsby-plugin-offline",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
-    "gatsby-plugin-root-import",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -67,18 +66,18 @@ module.exports = {
         ],
         plugins: ["gatsby-remark-images"]
       }
-    },
-    {
-      resolve: "gatsby-plugin-manifest",
-      options: {
-        name: "dreitagebart.io",
-        short_name: "dreitagebart",
-        start_url: "/",
-        background_color: "#efefef",
-        theme_color: "#333333",
-        display: "minimal-ui",
-        icon: "src/assets/images/favicon.png"
-      }
     }
+    // {
+    //   resolve: "gatsby-plugin-manifest",
+    //   options: {
+    //     name: "dreitagebart.io",
+    //     short_name: "dreitagebart",
+    //     start_url: "/",
+    //     background_color: "#efefef",
+    //     theme_color: "#333333",
+    //     display: "minimal-ui",
+    //     icon: "src/assets/images/favicon.png"
+    //   }
+    // }
   ]
 }

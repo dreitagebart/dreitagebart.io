@@ -2,7 +2,7 @@ backend:
   name: github
   repo: dreitagebart/dreitagebart.io
 
-site_url: https://www.dreitagebart.io
+site_url: https://dreitagebart.io
 publish_mode: editorial_workflow
 media_folder: content/assets
 public_folder: ../assets
@@ -13,8 +13,24 @@ collections:
     folder: content/blog
     create: true
     fields:
-      - { name: path, label: Slug }
-      - { name: date, label: Date, widget: date }
-      - { name: title, label: Title }
-      - { name: description, label: Description }
-      - { name: body, label: Body, widget: markdown }
+      - { name: "slug", label: "Slug" }
+      - { name: "date", label: "Date", widget: "date" }
+      - { name: "title", label: "Title" }
+      - { name: "description", label: "Description" }
+      - {
+          name: "tags",
+          label: "Tags",
+          collection: "tags",
+          value_field: "slug",
+          search_fields: ["title"],
+          widget: "relation"
+        }
+      - { name: "body", label: "Body", widget: "markdown" }
+
+  - name: "tags"
+    label: "Tags"
+    folder: "content/tags"
+    create: true
+    fields:
+      - { name: "title", label: "Title" }
+      - { name: "slug", label: "Slug" }

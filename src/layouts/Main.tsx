@@ -1,25 +1,19 @@
 import React from "react"
-import styled from "styled-components"
 
-import { MainHeader, SEO, Footer, Container } from "../components"
-import { SEOProps } from "../types"
+import { MainHeader, SEO, Footer, Container, Global } from "../components"
 
-interface Props extends SEOProps {
-  children: any
+interface Props {
+  title?: string
+  keywords?: string
 }
 
-const _Wrapper = styled.div`
-  position: relative;
-  min-height: 100vh;
-`
-
-export const MainLayout: React.FC<Props> = ({ children, title, keywords }) => {
+export const MainLayout: React.FC<Props> = ({ title, keywords }) => {
   return (
-    <_Wrapper>
-      <SEO title={title} keywords={keywords}></SEO>
+    <Global title={title}>
+      <SEO keywords={keywords}></SEO>
       <MainHeader></MainHeader>
-      <Container content>{children}</Container>
+      <Container content></Container>
       <Footer></Footer>
-    </_Wrapper>
+    </Global>
   )
 }
