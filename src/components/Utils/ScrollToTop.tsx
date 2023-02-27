@@ -47,9 +47,9 @@ export const ScrollToTop: FC<Props> = () => {
           variant='transparent'
           sx={(theme) => ({
             transition: 'background 500ms ease-out',
-            backgroundColor: theme.colors.brand[6],
+            backgroundColor: theme.colors.spin[6],
             ':hover': {
-              backgroundColor: theme.colors.brand[8]
+              backgroundColor: theme.colors.spin[8]
             }
           })}
           radius='xl'

@@ -1,10 +1,14 @@
-import { Box } from '@mantine/core'
+import { Box, BoxProps } from '@mantine/core'
 import { FC, ReactNode } from 'react'
 
-interface Props {
+interface Props extends BoxProps {
   children: ReactNode
 }
 
-export const Content: FC<Props> = ({ children }) => {
-  return <Box component='main'>{children}</Box>
+export const Content: FC<Props> = ({ children, ...props }) => {
+  return (
+    <Box component='main' {...props}>
+      {children}
+    </Box>
+  )
 }
