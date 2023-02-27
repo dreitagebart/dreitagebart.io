@@ -1,9 +1,8 @@
 import Head from 'next/head'
-import { MantineProvider } from '@mantine/core'
 import { AppProps } from 'next/app'
 import { FC } from 'react'
 
-import { theme } from '../styles/theme'
+import { Theme } from '../styles'
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
@@ -25,9 +24,9 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
         ></meta>
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
+      <Theme>
         <Component {...pageProps}></Component>
-      </MantineProvider>
+      </Theme>
     </>
   )
 }

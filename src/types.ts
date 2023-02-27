@@ -7,4 +7,11 @@ interface OpenGraphProps {
   type: 'website' | 'article'
 }
 
+export type NavbarItem = {
+  label: string
+  href: string
+}
+
+export type NavbarItems = Array<NavbarItem>
+
 export type OpenGraph = Partial<OpenGraphProps>

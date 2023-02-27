@@ -14,6 +14,7 @@ import {
 import { FC, ReactNode } from 'react'
 import { Pod } from './Pod'
 import { BrandLinkedin, BrandTwitter, BrandYoutube } from 'tabler-icons-react'
+import { ThemeSwitch } from './ThemeSwitch'
 
 interface Props extends BoxProps {}
 
@@ -28,7 +29,7 @@ const useStyles = createStyles((theme) => ({
   social: {
     transition: 'all 500ms ease-out',
     ':hover': {
-      background: theme.colors.brand[8]
+      background: theme.colors.spin[8]
     }
   }
 }))
@@ -95,13 +96,13 @@ export const Footer: FC<Props> = ({ ...props }) => {
       <Pod>
         <Group mt='xl'>
           <Text size='lg' fw='bold'>
-            Making things that matter
+            Creating things that matter
           </Text>
         </Group>
         <Group mt='lg' align='flex-start' grow>
           <Stack spacing={4}>
             <Text fw='bold'>
-              <Text component='span' color={theme.colors.brand[4]}>
+              <Text component='span' color={theme.colors.spin[4]}>
                 &#47;&#47;
               </Text>{' '}
               Credits
@@ -118,7 +119,7 @@ export const Footer: FC<Props> = ({ ...props }) => {
           </Stack>
           <Stack spacing={4}>
             <Text fw='bold'>
-              <Text component='span' color={theme.colors.brand[4]}>
+              <Text component='span' color={theme.colors.spin[4]}>
                 &#47;&#47;
               </Text>{' '}
               Connect with me
@@ -142,27 +143,11 @@ export const Footer: FC<Props> = ({ ...props }) => {
                 )
               })}
             </Group>
-            <Text fw='bold'>
-              <Text component='span' color={theme.colors.brand[4]}>
-                &#47;&#47;
-              </Text>{' '}
-              copyright 2023 dreitagebart
-            </Text>
-            <Group spacing='xl'>
-              {footerLinks.map(({ label, href }) => {
-                return (
-                  <Link href={href} key={href}>
-                    <UnstyledButton className={classes.link}>
-                      {label}
-                    </UnstyledButton>
-                  </Link>
-                )
-              })}
-            </Group>
+            <ThemeSwitch></ThemeSwitch>
           </Stack>
           <Stack spacing={4}>
             <Text fw='bold'>
-              <Text component='span' color={theme.colors.brand[4]}>
+              <Text component='span' color={theme.colors.spin[4]}>
                 &#47;&#47;
               </Text>{' '}
               copyright 2023 dreitagebart
