@@ -1,8 +1,8 @@
-import { Text, Title } from '@mantine/core'
+import { Text } from '@mantine/core'
 import { NextPage } from 'next'
 import { FC } from 'react'
 
-import { Layout, Pod, SEO } from '../components'
+import { Layout, PageTitle, Pod, SEO } from '../components'
 
 const Page: FC<NextPage> = () => {
   return (
@@ -16,6 +16,7 @@ const Page: FC<NextPage> = () => {
         }}
       ></SEO>
       <Pod>
+        <PageTitle>Index</PageTitle>
         <Text>
           Pellentesque habitant morbi tristique senectus et netus et malesuada
           fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,

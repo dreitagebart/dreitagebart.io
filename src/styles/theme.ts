@@ -30,24 +30,40 @@ export const theme: MantineThemeOverride = {
       borderRadius: 0
       // border: '3px solid #ffffff'
     },
+    a: {
+      color: 'inherit',
+      textDecoration: 'none'
+    },
     body: {
       backgroundColor:
-        theme.colorScheme === 'light' ? '#efefef' : theme.colors.spin[9]
+        theme.colorScheme === 'light' ? '#ffffff' : theme.colors.spin[9]
     }
   }),
-  primaryShade: 8,
-  primaryColor: 'cadet',
+  primaryShade: 5,
+  primaryColor: 'cyan',
   fontFamily: baseFont.style.fontFamily,
   fontSizes: {
-    xl: 36,
-    lg: 24,
-    md: 18,
-    sm: 16,
-    xs: 14
+    xl: '36px',
+    lg: '24px',
+    md: '18px',
+    sm: '16px',
+    xs: '14px'
   },
   colors: {
     spin,
     cadet,
     delft
+  },
+  headings: {
+    fontWeight: 400,
+    fontFamily: baseFont.style.fontFamily,
+    sizes: {
+      h1: { fontSize: '3rem' },
+      h2: { fontSize: '2.2rem' },
+      h3: { fontSize: '1.8rem' },
+      h4: { fontSize: '1.6rem' },
+      h5: { fontSize: '1.4rem' },
+      h6: { fontSize: '1.2rem' }
+    }
   }
 }

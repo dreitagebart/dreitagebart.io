@@ -1,8 +1,12 @@
+import relativeTime from 'dayjs/plugin/relativeTime'
+import dayjs from 'dayjs'
 import Head from 'next/head'
 import { AppProps } from 'next/app'
 import { FC } from 'react'
 
 import { Theme } from '../styles'
+
+dayjs.extend(relativeTime)
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (

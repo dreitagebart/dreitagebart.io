@@ -2,7 +2,7 @@ import { Box, Group } from '@mantine/core'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 
-import { NavbarItems } from '../../types'
+import { NavbarItems } from '../../utils'
 import { NavbarItem } from './NavbarItem'
 
 interface Props {}

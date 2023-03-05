@@ -2,22 +2,21 @@ import { Text } from '@mantine/core'
 import { NextPage } from 'next'
 import { FC } from 'react'
 
-import { Layout, PageTitle, Pod, SEO, SubTitle } from '../components'
+import { Layout, Pod, SEO } from '../../components'
 
 const Page: FC<NextPage> = () => {
   return (
-    <Layout title='Things'>
+    <Layout title='Blog'>
       <SEO
         openGraph={{
           siteName: 'dreitagebart.io',
-          title: 'Things',
+          title: 'Contact',
           description: 'This is a simple demo site',
           url: 'https://dreitagebart.io/selfexplained'
         }}
       ></SEO>
       <Pod>
-        <PageTitle>Things</PageTitle>
-        <SubTitle>Things around the web</SubTitle>
+        <Text>Here you can find all blog posts</Text>
       </Pod>
     </Layout>
   )

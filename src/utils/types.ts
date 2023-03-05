@@ -1,3 +1,5 @@
+import { MDXRemoteSerializeResult } from 'next-mdx-remote'
+
 interface OpenGraphProps {
   title: string
   description: string
@@ -15,3 +17,18 @@ export type NavbarItem = {
 export type NavbarItems = Array<NavbarItem>
 
 export type OpenGraph = Partial<OpenGraphProps>
+
+export type BlogPost = {
+  title: string
+  slug: string
+  content: string
+  excerpt: string
+  date: string
+  tags: Array<string>
+  cover: {
+    image: string
+    alt: string
+    width: number
+    height: number
+  }
+}

@@ -54,15 +54,15 @@ const creditsLinks: Array<{
 }> = [
   {
     label: 'Who I am',
-    href: '/privacy'
+    href: '/about#who-i-am'
   },
   {
     label: 'What I do',
-    href: '/impressum'
+    href: '/about#what-i-do'
   },
   {
     label: 'What I think',
-    href: '/'
+    href: '/about#what-i-think'
   }
 ]
 

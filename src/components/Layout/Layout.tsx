@@ -20,17 +20,14 @@ const useStyles = createStyles((theme) => ({
   wrapper: {
     paddingBottom: 300
   },
-  header: {
-    color: theme.colors.gray[1],
-    backgroundColor: theme.colors.spin[8]
-  },
-  content: {
-    backgroundColor:
-      theme.colorScheme === 'light' ? '#efefef' : theme.colors.spin[8]
-  },
+  header: {},
+  content: {},
   footer: {
     color: theme.colors.gray[0],
-    backgroundColor: theme.colors.spin[9],
+    backgroundColor:
+      theme.colorScheme === 'light'
+        ? theme.colors.spin[9]
+        : theme.colors.spin[8],
     position: 'absolute',
     bottom: 0,
     left: 0,

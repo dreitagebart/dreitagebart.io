@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { FC } from 'react'
 
-import { OpenGraph } from '../../types'
+import { OpenGraph } from '../../utils'
 
 interface Props {
   description?: string
