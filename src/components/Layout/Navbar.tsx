@@ -62,7 +62,7 @@ export const Navbar: FC<Props> = () => {
             dropdown: {
               backgroundColor:
                 theme.colorScheme === 'light'
-                  ? theme.colors.spin[8]
+                  ? theme.colors.spin[2]
                   : theme.colors.spin[8],
               boxShadow: 'none',
               marginTop: 8,
@@ -74,10 +74,7 @@ export const Navbar: FC<Props> = () => {
               paddingTop: 12,
               paddingBottom: 12,
               fontSize: '1.2rem',
-              background:
-                theme.colorScheme === 'light'
-                  ? theme.colors.spin[8]
-                  : theme.colors.spin[8]
+              background: 'transparent'
             }
           }}
         >

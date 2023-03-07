@@ -1,4 +1,5 @@
 import { Group, Pagination, SimpleGrid, Text } from '@mantine/core'
+import { useMediaQuery } from '@mantine/hooks'
 import {
   GetStaticPaths,
   GetStaticPropsContext,
@@ -70,6 +71,7 @@ const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   numPages
 }) => {
   const router = useRouter()
+  const largeScreen = useMediaQuery('(min-width: 48em)')
 
   return (
     <Layout title='Blog'>
@@ -95,7 +97,11 @@ const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
         </Group>
       </Pod>
       <Pod mt='xl'>
-        <SimpleGrid cols={2} spacing={48} verticalSpacing={48}>
+        <SimpleGrid
+          cols={largeScreen ? 2 : 1}
+          spacing={48}
+          verticalSpacing={48}
+        >
           {posts.map((post) => {
             return <ArticleCard post={post} key={post.slug}></ArticleCard>
           })}
