@@ -1,13 +1,13 @@
-import { Text } from '@mantine/core'
+import { Text, TextProps } from '@mantine/core'
 import { FC, ReactNode } from 'react'
 
-interface Props {
+interface Props extends TextProps {
   children: string | ReactNode
 }
 
-export const SubTitle: FC<Props> = ({ children }) => {
+export const SubTitle: FC<Props> = ({ children, ...props }) => {
   return (
-    <Text size='lg' mb='xl'>
+    <Text size='lg' mb='xl' {...props}>
       {children}
     </Text>
   )

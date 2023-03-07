@@ -1,7 +1,7 @@
 import { Badge } from '@mantine/core'
 import { InferGetStaticPropsType, NextPage } from 'next'
 import Link from 'next/link'
-import { Layout, SEO } from '../../components'
+import { Layout } from '../../components'
 
 import { getAllTags } from '../../lib/blog'
 
@@ -18,14 +18,6 @@ const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
 }) => {
   return (
     <Layout title='Tags'>
-      <SEO
-        openGraph={{
-          siteName: 'dreitagebart.io',
-          title: 'Contact',
-          description: 'This is a simple demo site',
-          url: 'https://dreitagebart.io/selfexplained'
-        }}
-      ></SEO>
       {tags.map((tag) => {
         return (
           <Link key={tag} href={`/blog/tag/${tag}`}>

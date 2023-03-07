@@ -1,9 +1,5 @@
 import { ActionIcon, Box, Portal } from '@mantine/core'
-import {
-  useScrollIntoView,
-  useWindowEvent,
-  useWindowScroll
-} from '@mantine/hooks'
+import { useScrollIntoView, useWindowEvent } from '@mantine/hooks'
 import { FC, useState } from 'react'
 import { ChevronUp } from 'tabler-icons-react'
 
@@ -38,6 +34,7 @@ export const ScrollToTop: FC<Props> = () => {
         right={40}
         bottom={40}
         sx={{
+          zIndex: 1000,
           transition: 'all 500ms ease-out',
           visibility: visible ? 'visible' : 'hidden',
           opacity: visible ? 1 : 0
@@ -47,12 +44,12 @@ export const ScrollToTop: FC<Props> = () => {
           variant='transparent'
           sx={(theme) => ({
             transition: 'background 500ms ease-out',
-            backgroundColor: theme.colors.spin[6],
+            backgroundColor: theme.colors.spin[8],
             ':hover': {
-              backgroundColor: theme.colors.spin[8]
+              backgroundColor: theme.colors.spin[7]
             }
           })}
-          radius='xl'
+          radius='sm'
           size={40}
           onClick={() => scrollIntoView({ alignment: 'start' })}
         >

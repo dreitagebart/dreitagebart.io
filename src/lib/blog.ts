@@ -4,7 +4,7 @@ import { join } from 'path'
 
 import { BlogPost, uniq } from '../utils'
 
-const postsDirectory = join(process.cwd(), 'src/assets/mdx')
+const postsDirectory = join(process.cwd(), 'public/blog')
 
 export const getPostsByTag = (tag: string) => {
   return getAllPosts().filter((post) => post.tags.includes(tag))
@@ -15,9 +15,9 @@ export const getPostSlugs = () => {
 }
 
 export const getPostBySlug = (slug: string): BlogPost => {
-  const realSlug = slug.replace(/\.mdx$/, '')
+  // const realSlug = slug.replace(/\.mdx$/, '')
 
-  const fullPath = join(postsDirectory, `${realSlug}.mdx`)
+  const fullPath = join(postsDirectory, slug, 'content.mdx')
   const fileContents = fs.readFileSync(fullPath, 'utf8')
 
   const { data, content } = matter(fileContents)
@@ -28,7 +28,7 @@ export const getPostBySlug = (slug: string): BlogPost => {
     content,
     date: data.date,
     tags: data.tags,
-    slug: realSlug,
+    slug,
     cover: {
       image: data.coverImage,
       alt: data.coverImageAlt,

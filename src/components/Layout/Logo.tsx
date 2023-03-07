@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Group, Text, UnstyledButton, useMantineTheme } from '@mantine/core'
 import { FC } from 'react'
 
-import profile from '../../assets/images/698129181_xw-61_cwRcSHBQAc6gzp1g_8Gk_de_DE_ffffffff_watermark_share.jpg'
+import profile from '../../assets/images/profile.jpg'
 import { handwritingFont } from '../../styles/theme'
 
 interface Props {}

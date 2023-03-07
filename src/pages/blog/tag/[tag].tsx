@@ -1,14 +1,7 @@
-import { Group, SimpleGrid, Text, Title } from '@mantine/core'
+import { SimpleGrid } from '@mantine/core'
 import { GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next'
 
-import {
-  ArticleCard,
-  Layout,
-  PageTitle,
-  Pod,
-  SEO,
-  Tag
-} from '../../../components'
+import { ArticleCard, Layout, PageTitle, Pod } from '../../../components'
 import { getAllTags, getPostsByTag } from '../../../lib/blog'
 
 export const getStaticPaths = async () => {
@@ -49,14 +42,6 @@ const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
 }) => {
   return (
     <Layout title='Blog'>
-      <SEO
-        openGraph={{
-          siteName: 'dreitagebart.io',
-          title: 'Contact',
-          description: 'This is a simple demo site',
-          url: 'https://dreitagebart.io/selfexplained'
-        }}
-      ></SEO>
       <Pod>
         <PageTitle>Tag {tag}</PageTitle>
       </Pod>

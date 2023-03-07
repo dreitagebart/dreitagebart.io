@@ -1,9 +1,8 @@
-import { MDXRemoteSerializeResult } from 'next-mdx-remote'
-
 interface OpenGraphProps {
   title: string
   description: string
   locale: string
+  image: string
   siteName: string
   url: string
   type: 'website' | 'article'

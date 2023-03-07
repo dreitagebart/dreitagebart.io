@@ -13,7 +13,6 @@ import {
   Layout,
   PageTitle,
   Pod,
-  SEO,
   Tag,
   SubTitle
 } from '../../../components'
@@ -74,14 +73,6 @@ const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
 
   return (
     <Layout title='Blog'>
-      <SEO
-        openGraph={{
-          siteName: 'dreitagebart.io',
-          title: 'Contact',
-          description: 'This is a simple demo site',
-          url: 'https://dreitagebart.io/selfexplained'
-        }}
-      ></SEO>
       <Pod>
         <PageTitle>Blog</PageTitle>
         <SubTitle>
@@ -96,7 +87,7 @@ const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
           </Group>
           {tags.map((tag) => {
             return (
-              <Tag key={tag} size='lg'>
+              <Tag key={tag} size='lg' link>
                 {tag}
               </Tag>
             )
