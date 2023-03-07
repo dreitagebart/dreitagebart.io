@@ -2,6 +2,7 @@ interface OpenGraphProps {
   title: string
   description: string
   locale: string
+  image: string
   siteName: string
   url: string
   type: 'website' | 'article'
@@ -15,3 +16,18 @@ export type NavbarItem = {
 export type NavbarItems = Array<NavbarItem>
 
 export type OpenGraph = Partial<OpenGraphProps>
+
+export type BlogPost = {
+  title: string
+  slug: string
+  content: string
+  excerpt: string
+  date: string
+  tags: Array<string>
+  cover: {
+    image: string
+    alt: string
+    width: number
+    height: number
+  }
+}

@@ -1,30 +1,40 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Group, Text, UnstyledButton } from '@mantine/core'
+import { Group, Text, UnstyledButton, useMantineTheme } from '@mantine/core'
 import { FC } from 'react'
 
-import profile from '../../assets/images/698129181_xw-61_cwRcSHBQAc6gzp1g_8Gk_de_DE_ffffffff_watermark_share.jpg'
+import profile from '../../assets/images/profile.jpg'
 import { handwritingFont } from '../../styles/theme'
+import { useMediaQuery } from '@mantine/hooks'
 
 interface Props {}
 
 export const Logo: FC<Props> = () => {
+  const theme = useMantineTheme()
+  const largeScreen = useMediaQuery('(min-width: 48em)')
+
   return (
     <Link href='/'>
       <UnstyledButton>
-        <Group py='md' spacing={0}>
+        <Group py='md' spacing={8}>
           <Image
             src={profile}
             alt='profile'
-            width={72}
-            style={{ borderRadius: '100%' }}
+            width={largeScreen ? 72 : 52}
+            style={{
+              borderRadius: '100%'
+            }}
           ></Image>
           <Group spacing='xs' align='baseline' sx={{ userSelect: 'none' }}>
             <Text
-              color='white'
+              color={
+                theme.colorScheme === 'light'
+                  ? theme.colors.spin[6]
+                  : theme.colors.gray[1]
+              }
               component='span'
               ff={handwritingFont.style.fontFamily}
-              size={48}
+              size={largeScreen ? 48 : 30}
             >
               dreitagebart
             </Text>

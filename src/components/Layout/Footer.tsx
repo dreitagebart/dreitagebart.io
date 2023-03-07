@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import {
-  ActionIcon,
   Box,
   BoxProps,
   createStyles,
@@ -13,8 +12,9 @@ import {
 
 import { FC, ReactNode } from 'react'
 import { Pod } from './Pod'
-import { BrandLinkedin, BrandTwitter, BrandYoutube } from 'tabler-icons-react'
+import { BrandGithub, BrandLinkedin, BrandTwitter } from 'tabler-icons-react'
 import { ThemeSwitch } from './ThemeSwitch'
+import { handwritingFont } from '../../styles/theme'
 
 interface Props extends BoxProps {}
 
@@ -48,23 +48,23 @@ const footerLinks: Array<{
   }
 ]
 
-const creditsLinks: Array<{
-  label: string
-  href: string
-}> = [
-  {
-    label: 'Who I am',
-    href: '/privacy'
-  },
-  {
-    label: 'What I do',
-    href: '/impressum'
-  },
-  {
-    label: 'What I think',
-    href: '/'
-  }
-]
+// const creditsLinks: Array<{
+//   label: string
+//   href: string
+// }> = [
+//   {
+//     label: 'Who I am',
+//     href: '/about#who-i-am'
+//   },
+//   {
+//     label: 'What I do',
+//     href: '/about#what-i-do'
+//   },
+//   {
+//     label: 'What I think',
+//     href: '/about#what-i-think'
+//   }
+// ]
 
 const socialLinks: Array<{
   label: string
@@ -74,17 +74,17 @@ const socialLinks: Array<{
   {
     label: 'Twitter',
     href: 'https://twitter.com',
-    icon: <BrandTwitter></BrandTwitter>
+    icon: <BrandTwitter size={32}></BrandTwitter>
   },
   {
     label: 'Linked in',
     href: 'https://linkedin.com',
-    icon: <BrandLinkedin></BrandLinkedin>
+    icon: <BrandLinkedin size={32}></BrandLinkedin>
   },
   {
-    label: 'YouTube',
-    href: 'https://youtube.com',
-    icon: <BrandYoutube></BrandYoutube>
+    label: 'Github',
+    href: 'https://github.com/dreitagebart',
+    icon: <BrandGithub size={32}></BrandGithub>
   }
 ]
 
@@ -94,60 +94,16 @@ export const Footer: FC<Props> = ({ ...props }) => {
   return (
     <Box component='footer' {...props}>
       <Pod>
-        <Group mt='xl'>
-          <Text size='lg' fw='bold'>
+        <Group mt='xl' position='apart'>
+          <Text size='xl' fw='bold' ff={handwritingFont.style.fontFamily}>
             Creating things that matter
           </Text>
+          <ThemeSwitch></ThemeSwitch>
         </Group>
         <Group mt='lg' align='flex-start' grow>
           <Stack spacing={4}>
             <Text fw='bold'>
-              <Text component='span' color={theme.colors.spin[4]}>
-                &#47;&#47;
-              </Text>{' '}
-              Credits
-            </Text>
-            {creditsLinks.map(({ label, href }) => {
-              return (
-                <Link href={href} key={href}>
-                  <UnstyledButton className={classes.link}>
-                    {label}
-                  </UnstyledButton>
-                </Link>
-              )
-            })}
-          </Stack>
-          <Stack spacing={4}>
-            <Text fw='bold'>
-              <Text component='span' color={theme.colors.spin[4]}>
-                &#47;&#47;
-              </Text>{' '}
-              Connect with me
-            </Text>
-            <Group spacing='xs'>
-              {socialLinks.map(({ label, href, icon }) => {
-                return (
-                  <Tooltip label={label} key={label}>
-                    <ActionIcon
-                      className={classes.social}
-                      color='brand'
-                      variant='subtle'
-                      component={Link}
-                      href={href}
-                      rel='noreferrer'
-                      target='_blank'
-                    >
-                      {icon}
-                    </ActionIcon>
-                  </Tooltip>
-                )
-              })}
-            </Group>
-            <ThemeSwitch></ThemeSwitch>
-          </Stack>
-          <Stack spacing={4}>
-            <Text fw='bold'>
-              <Text component='span' color={theme.colors.spin[4]}>
+              <Text component='span' color={theme.colors.cyan[5]}>
                 &#47;&#47;
               </Text>{' '}
               copyright 2023 dreitagebart
@@ -160,6 +116,24 @@ export const Footer: FC<Props> = ({ ...props }) => {
                       {label}
                     </UnstyledButton>
                   </Link>
+                )
+              })}
+            </Group>
+          </Stack>
+          <Stack spacing={4}>
+            <Group spacing='xs'>
+              {socialLinks.map(({ label, href, icon }) => {
+                return (
+                  <Tooltip label={label} key={label}>
+                    <Link
+                      className={classes.social}
+                      href={href}
+                      rel='noreferrer'
+                      target='_blank'
+                    >
+                      {icon}
+                    </Link>
+                  </Tooltip>
                 )
               })}
             </Group>

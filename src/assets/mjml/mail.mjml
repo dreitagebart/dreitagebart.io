@@ -1,0 +1,43 @@
+<mjml>
+  <mj-body background-color="#e9ecef">
+    <mj-section background-color="#f6f9fc">
+      <mj-column>
+        <mj-text font-size="26px" color="#1c3c63"
+          >Weinbergblick Markelsheim</mj-text
+        >
+      </mj-column>
+    </mj-section>
+    <mj-section
+      padding-top="240px"
+      background-url="https://weinbergblick-markelsheim.vercel.app/images/vineyard.jpg"
+      background-size="cover"
+      background-repeat="no-repeat"
+    >
+    </mj-section>
+    <mj-section>
+      <mj-column>
+        <mj-text font-size="26px" color="#1c3c63" font-family="arial"
+          >Neue Anfrage von: ${name}</mj-text
+        >
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#f6f9fc">
+      <mj-column>
+        <mj-text font-size="20px">Nachricht:</mj-text>
+        <mj-text font-size="16px" font-style="italic">${message}</mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#486281">
+      <mj-column>
+        <mj-text color="#efefef" font-size="20px"
+          >eMail Adresse des Absenders:</mj-text
+        >
+        <mj-text color="#ffffff" font-size="16px">${email}</mj-text>
+        <mj-text color="#efefef" font-size="20px"
+          >Telefonnummer des Absenders:</mj-text
+        >
+        <mj-text color="#ffffff" font-size="16px">${phone}</mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

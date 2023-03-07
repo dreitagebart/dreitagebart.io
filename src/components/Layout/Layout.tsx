@@ -1,15 +1,17 @@
-import { Box, createStyles } from '@mantine/core'
 import Head from 'next/head'
+import { Box, createStyles } from '@mantine/core'
 import { FC, ReactNode } from 'react'
-import { ScrollToTop } from '../Utils'
 
+import { ScrollToTop } from '../Utils'
 import { Content } from './Content'
 import { Footer } from './Footer'
 import { Header } from './Header'
+import { OpenGraph } from '../../utils'
 
 interface Props {
   title: string
   children: ReactNode
+  openGraph?: OpenGraph
 }
 
 const useStyles = createStyles((theme) => ({
@@ -20,17 +22,14 @@ const useStyles = createStyles((theme) => ({
   wrapper: {
     paddingBottom: 300
   },
-  header: {
-    color: theme.colors.gray[1],
-    backgroundColor: theme.colors.spin[8]
-  },
-  content: {
-    backgroundColor:
-      theme.colorScheme === 'light' ? '#efefef' : theme.colors.spin[8]
-  },
+  header: {},
+  content: {},
   footer: {
     color: theme.colors.gray[0],
-    backgroundColor: theme.colors.spin[9],
+    backgroundColor:
+      theme.colorScheme === 'light'
+        ? theme.colors.spin[9]
+        : theme.colors.spin[8],
     position: 'absolute',
     bottom: 0,
     left: 0,
@@ -40,13 +39,35 @@ const useStyles = createStyles((theme) => ({
   }
 }))
 
-export const Layout: FC<Props> = ({ title, children }) => {
+export const Layout: FC<Props> = ({ title, children, openGraph }) => {
   const { classes } = useStyles()
 
   return (
     <>
       <Head>
-        <title>{`${title} // dreitagebart.io`}</title>
+        <title>{`${title} / dreitagebart.io`}</title>
+        <meta property='og:title' content={openGraph?.title || title}></meta>
+        {openGraph?.description && (
+          <meta
+            property='og:description'
+            content={openGraph.description}
+          ></meta>
+        )}
+        {openGraph?.image && (
+          <meta property='og:image' content={openGraph.image}></meta>
+        )}
+        {openGraph?.url && (
+          <meta property='og:url' content={openGraph.url}></meta>
+        )}
+        {openGraph?.type && (
+          <meta property='og:type' content={openGraph.type}></meta>
+        )}
+        {openGraph?.locale && (
+          <meta property='og:locale' content={openGraph.locale}></meta>
+        )}
+        {openGraph?.siteName && (
+          <meta property='og:site_name' content={openGraph.siteName}></meta>
+        )}
       </Head>
       <Box className={classes.container}>
         <Box className={classes.wrapper}>
