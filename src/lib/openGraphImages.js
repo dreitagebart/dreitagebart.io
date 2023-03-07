@@ -18,7 +18,7 @@ const fileExists = (filePath) =>
     })
   })
 
-const generateOgImage = async (title, tags, dest) => {
+const generateOgImage = async (title, dest) => {
   const canvas = createCanvas(width, height)
   const context = canvas.getContext('2d')
 

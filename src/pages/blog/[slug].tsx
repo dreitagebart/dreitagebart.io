@@ -56,7 +56,13 @@ const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   )
 
   return (
-    <Layout title='Blog'>
+    <Layout
+      title='Blog'
+      openGraph={{
+        title: post.title,
+        image: `/blog/${post.slug}/featured.png`
+      }}
+    >
       <Pod>
         <PageTitle>{post.title}</PageTitle>
         <Stack spacing={4}>
