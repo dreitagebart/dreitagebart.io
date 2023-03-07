@@ -5,11 +5,13 @@ import { FC } from 'react'
 
 import profile from '../../assets/images/profile.jpg'
 import { handwritingFont } from '../../styles/theme'
+import { useMediaQuery } from '@mantine/hooks'
 
 interface Props {}
 
 export const Logo: FC<Props> = () => {
   const theme = useMantineTheme()
+  const largeScreen = useMediaQuery('(min-width: 48em)')
 
   return (
     <Link href='/'>
@@ -18,10 +20,9 @@ export const Logo: FC<Props> = () => {
           <Image
             src={profile}
             alt='profile'
-            width={72}
+            width={largeScreen ? 72 : 52}
             style={{
               borderRadius: '100%'
-              // border: '3px solid #ffffff'
             }}
           ></Image>
           <Group spacing='xs' align='baseline' sx={{ userSelect: 'none' }}>
@@ -33,7 +34,7 @@ export const Logo: FC<Props> = () => {
               }
               component='span'
               ff={handwritingFont.style.fontFamily}
-              size={48}
+              size={largeScreen ? 48 : 30}
             >
               dreitagebart
             </Text>

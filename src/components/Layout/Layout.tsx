@@ -11,8 +11,6 @@ import { OpenGraph } from '../../utils'
 interface Props {
   title: string
   children: ReactNode
-  description?: string
-  keywords?: Array<string>
   openGraph?: OpenGraph
 }
 
@@ -41,26 +39,14 @@ const useStyles = createStyles((theme) => ({
   }
 }))
 
-export const Layout: FC<Props> = ({
-  title,
-  children,
-  openGraph,
-  description,
-  keywords
-}) => {
+export const Layout: FC<Props> = ({ title, children, openGraph }) => {
   const { classes } = useStyles()
 
   return (
     <>
       <Head>
-        <title>{`${title} // dreitagebart.io`}</title>
-        {description && <meta name='description' content={description}></meta>}
-        {keywords && (
-          <meta name='description' content={keywords.join(', ')}></meta>
-        )}
-        {openGraph?.title && (
-          <meta property='og:title' content={openGraph.title}></meta>
-        )}
+        <title>{`${title} / dreitagebart.io`}</title>
+        <meta property='og:title' content={openGraph?.title || title}></meta>
         {openGraph?.description && (
           <meta
             property='og:description'

@@ -15,7 +15,7 @@ interface Props {
 export const Theme: FC<Props> = ({ children }) => {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
     key: 'dtb-color-scheme',
-    defaultValue: 'light',
+    defaultValue: 'dark',
     getInitialValueInEffect: true
   })
 

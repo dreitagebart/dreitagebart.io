@@ -16,8 +16,10 @@ import { Send } from 'tabler-icons-react'
 
 import profile from '../assets/images/annoyed.png'
 import { Layout, PageTitle, Pod, SubTitle } from '../components'
+import { useMediaQuery } from '@mantine/hooks'
 
 const Page: FC<NextPage> = () => {
+  const largeScreen = useMediaQuery('(min-width: 48em)')
   const { values, setFieldValue, onSubmit } = useForm({
     initialValues: {
       sent: false,
@@ -126,14 +128,16 @@ const Page: FC<NextPage> = () => {
                 Send
               </Button>
             </Stack>
-            <Center>
-              <Image
-                src={profile}
-                alt=''
-                style={{ borderRadius: '100%' }}
-                width={280}
-              ></Image>
-            </Center>
+            {largeScreen && (
+              <Center>
+                <Image
+                  src={profile}
+                  alt=''
+                  style={{ borderRadius: '100%' }}
+                  width={280}
+                ></Image>
+              </Center>
+            )}
           </Group>
         </form>
       </Pod>

@@ -20,7 +20,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
         ></meta>
         <meta
           name='description'
-          content='This is the official website of dreitagebart'
+          content='dreitagebart.io / creating things that matter'
         ></meta>
         <meta
           name='viewport'

@@ -10,7 +10,6 @@ interface Props extends BoxProps {}
 
 export const Header: FC<Props> = ({ ...props }) => {
   const theme = useMantineTheme()
-
   const color =
     theme.colorScheme === 'light' ? theme.colors.spin[2] : theme.colors.spin[8]
 
