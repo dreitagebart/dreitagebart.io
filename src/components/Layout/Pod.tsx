@@ -14,7 +14,9 @@ interface Props {
 }
 
 export const Pod: FC<Props> = ({ mt, mb, children, size = 'xl' }) => {
-  const largeScreen = useMediaQuery('(min-width: 48em)')
+  const largeScreen = useMediaQuery('(min-width: 48em)', true, {
+    getInitialValueInEffect: false
+  })
 
   return (
     <Container size={size} mt={mt} mb={mb} px={largeScreen ? 40 : 20}>
