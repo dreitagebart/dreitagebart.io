@@ -19,7 +19,9 @@ import { Layout, PageTitle, Pod, SubTitle } from '../components'
 import { useMediaQuery } from '@mantine/hooks'
 
 const Page: FC<NextPage> = () => {
-  const largeScreen = useMediaQuery('(min-width: 48em)')
+  const largeScreen = useMediaQuery('(min-width: 48em)', true, {
+    getInitialValueInEffect: false
+  })
   const { values, setFieldValue, onSubmit } = useForm({
     initialValues: {
       sent: false,

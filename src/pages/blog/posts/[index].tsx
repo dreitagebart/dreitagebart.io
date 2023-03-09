@@ -71,7 +71,9 @@ const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   numPages
 }) => {
   const router = useRouter()
-  const largeScreen = useMediaQuery('(min-width: 48em)')
+  const largeScreen = useMediaQuery('(min-width: 48em)', true, {
+    getInitialValueInEffect: false
+  })
 
   return (
     <Layout title='Blog'>

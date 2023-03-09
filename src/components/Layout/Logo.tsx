@@ -2,16 +2,18 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Group, Text, UnstyledButton, useMantineTheme } from '@mantine/core'
 import { FC } from 'react'
+import { useMediaQuery } from '@mantine/hooks'
 
 import profile from '../../assets/images/profile.jpg'
 import { handwritingFont } from '../../styles/theme'
-import { useMediaQuery } from '@mantine/hooks'
 
 interface Props {}
 
 export const Logo: FC<Props> = () => {
   const theme = useMantineTheme()
-  const largeScreen = useMediaQuery('(min-width: 48em)')
+  const largeScreen = useMediaQuery('(min-width: 48em)', true, {
+    getInitialValueInEffect: false
+  })
 
   return (
     <Link href='/'>

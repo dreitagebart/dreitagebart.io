@@ -32,7 +32,9 @@ const items: NavbarItems = [
 export const Navbar: FC<Props> = () => {
   const router = useRouter()
   const theme = useMantineTheme()
-  const largeScreen = useMediaQuery('(min-width: 48em)')
+  const largeScreen = useMediaQuery('(min-width: 48em)', true, {
+    getInitialValueInEffect: false
+  })
   const [opened, { toggle }] = useDisclosure(false)
   const label = opened ? 'Close navigation' : 'Open navigation'
 
