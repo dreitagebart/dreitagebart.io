@@ -1,0 +1,17 @@
+{
+  "name": "Stefan Büchold",
+  "city": "Schwäbisch Hall",
+  "country": "Germany",
+  "location": {
+    "latitude": "49.146496031967075",
+    "longitude": "9.690117991414926"
+  },
+  "job": "Software Developer",
+  "born": "1985-11-27T17:12:00+01:00",
+  "interests": [
+    "web tech",
+    "music",
+    "sports",
+    "cooking"
+  ]
+}

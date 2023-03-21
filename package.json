@@ -7,11 +7,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "ogi": "node ./src/lib/openGraphImages.js"
+    "ogi": "node ./src/lib/openGraphImages.js",
+    "genpw": "npx nanoid --alphabet abcdefghijklmnopqrstuvwxyz-_ABCDEFGHIJKLMNOPQRSTUVWXYZ --size 6"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/server": "^11.10.0",
+    "@emotion/styled": "^11.10.6",
     "@mantine/core": "^6.0.0",
     "@mantine/form": "^6.0.0",
     "@mantine/hooks": "^6.0.0",
@@ -33,10 +35,13 @@
     "gray-matter": "^4.0.3",
     "mjml": "^4.13.0",
     "next": "^13.2.1",
+    "next-auth": "^4.20.1",
     "next-mdx-remote": "^4.4.0",
     "nodemailer": "^6.9.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-typed": "^1.2.0",
+    "react-use-sticky": "^0.1.4",
     "sharp": "^0.31.3",
     "tabler-icons-react": "^1.56.0",
     "typescript": "^4.9.5"

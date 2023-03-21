@@ -3,12 +3,16 @@ import dayjs from 'dayjs'
 import Head from 'next/head'
 import { AppProps } from 'next/app'
 import { FC } from 'react'
+import { SessionProvider } from 'next-auth/react'
 
 import { Theme } from '../styles'
 
 dayjs.extend(relativeTime)
 
-const App: FC<AppProps> = ({ Component, pageProps }) => {
+const App: FC<AppProps> = ({
+  Component,
+  pageProps: { session, ...pageProps }
+}) => {
   return (
     <>
       <Head>
@@ -29,7 +33,9 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Theme>
-        <Component {...pageProps}></Component>
+        <SessionProvider session={session}>
+          <Component {...pageProps}></Component>
+        </SessionProvider>
       </Theme>
     </>
   )
