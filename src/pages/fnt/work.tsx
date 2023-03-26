@@ -14,7 +14,7 @@ import {
 } from 'tabler-icons-react'
 
 import { FeatureCard, Layout, PageTitle, Pod, WorkCard } from '../../components'
-import { useFNT } from '../../hooks'
+import { useRestrictedArea } from '../../hooks'
 
 const mockdata2 = [
   {
@@ -83,16 +83,16 @@ const useStyles = createStyles((theme) => ({
 }))
 
 const Page: FC<NextPage> = () => {
-  const { user, status } = useFNT()
-  const { classes, theme } = useStyles()
+  const { loading } = useRestrictedArea('fnt')
+  const { classes } = useStyles()
 
   return (
     <Layout title='Work'>
-      {status === 'loading' ? (
+      {loading ? (
         <Center px='xl'>
           <Loader size='xl'></Loader>
         </Center>
-      ) : status === 'authenticated' ? (
+      ) : (
         <Pod>
           <PageTitle>Work</PageTitle>
           <SimpleGrid cols={3} spacing='xl'>
@@ -145,7 +145,7 @@ const Page: FC<NextPage> = () => {
             </SimpleGrid>
           </Container>
         </Pod>
-      ) : null}
+      )}
     </Layout>
   )
 }

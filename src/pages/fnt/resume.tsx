@@ -1,31 +1,190 @@
+import Image from 'next/image'
 import { Avatar, ThemeIcon, Timeline } from '@mantine/core'
 import { Center, Grid, Group, Loader, Stack, Text } from '@mantine/core'
 import { NextPage } from 'next'
-import Image from 'next/image'
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 import {
+  Ballon,
   Cake,
+  Certificate,
   CurrentLocation,
+  DeviceMobile,
+  LayersLinked,
   Mail,
-  Phone,
+  School,
   Sun,
   Video
 } from 'tabler-icons-react'
 
 import profile from '../../assets/images/profile.jpg'
 import { Layout, Pod } from '../../components'
-import { useFNT } from '../../hooks'
+import { useRestrictedArea } from '../../hooks'
+
+type Item = {
+  time: ReactNode
+  title: ReactNode
+  description: ReactNode
+}
+
+const education: Array<Item> = [
+  {
+    time: '2002',
+    title: 'School graduation middle school maturity',
+    description: 'Kopernikus Realschule Bad Mergentheim'
+  },
+  {
+    time: '2003',
+    title: 'School graduation Berufskolleg I (Business Assistant)',
+    description: 'KSM Bad Mergentheim'
+  },
+  {
+    time: '2004',
+    title: 'School graduation Berufskolleg II (Commercial Diploma)',
+    description: 'KSM Bad Mergentheim'
+  },
+  {
+    time: '2005 - 2007',
+    title:
+      'Apprenticeship as a management assistant for office communication (Kaufmann für Bürokommunikation)',
+    description: 'Computation Systemhaus GmbH'
+  },
+  {
+    time: '2008 - 2011',
+    title: 'Apprenticeship as an information technology clerk (IT Kaufmann)',
+    description: 'ebm-papst GmbH & Co. KG'
+  }
+]
+
+const experience: Array<Item> = [
+  {
+    time: '2007 - 2008',
+    title: 'Team lead / key account management for logistics',
+    description: 'Planning and execution of deliveries to key account Amazon'
+  },
+  {
+    time: '2011 - 2012',
+    title: 'SAP implementation ebm-papst branch office France (Obernai)',
+    description: (
+      <>
+        Subproject manager for data migration and master/product data management
+        <br></br>
+        Transfer of all data from legacy system to SAP
+      </>
+    )
+  },
+  {
+    time: '2012 - 2013',
+    title: 'SAP implementation ebm-papst branch office Italy (Mozzate)',
+    description: (
+      <>
+        Subproject manager for data migration and master/product data management
+        <br></br>
+        Transfer of all data from legacy system to SAP
+      </>
+    )
+  },
+  {
+    time: '2014 - 2015',
+    title: 'SAP implementation ebm-papst branch office China (Shanghai)',
+    description: (
+      <>
+        Support as &ldquo;German expert&ldquo; in the area of data migration and
+        master data management
+      </>
+    )
+  },
+  {
+    time: 'since 2014',
+    title: 'Project epGML (ebm-papst Globale MaterialnummernLogik)',
+    description: (
+      <>
+        Contact person and carry out the implementation of a non-speaking
+        material number logic in SAP
+      </>
+    )
+  },
+  {
+    time: 'since 2015',
+    title: 'Project ECM (Engineering Change Management)',
+    description: (
+      <>
+        Support in the implementation and contact person in the development of a
+        management program for change projects on products
+      </>
+    )
+  },
+  {
+    time: '2015',
+    title: 'Collaboration epIN',
+    description: (
+      <>
+        Recruitment and development of an IT department in the ebm-papst branch
+        office in India (Chennai), which mainly supports the SAP area in the
+        Asian region in cooperation with IT ebm-papst Mulfingen.
+      </>
+    )
+  },
+  {
+    time: '2015',
+    title:
+      'Technology conversion master data management at ebm-papst Mulfingen',
+    description: (
+      <>
+        Conversion of the technology of an existing master data management in
+        SAP - main contact person + implementation support
+      </>
+    )
+  },
+  {
+    time: '2016',
+    title:
+      'SAP implementation EWM at ebm-papst Mulfingen (Extended Warehouse Management)',
+    description: (
+      <>
+        Main contact person for master data management<br></br>
+        Implementing requirements from project<br></br>
+        Adaptation of material master data for EWM processes (mass changes)
+      </>
+    )
+  },
+  {
+    time: '2016',
+    title: 'SAP implementation QM at ebm-papst Mulfingen (Quality Management)',
+    description: (
+      <>
+        Main contact person for master data management<br></br>
+        Implementing requirements from project
+      </>
+    )
+  },
+  {
+    time: '2016 - 2017',
+    title: (
+      <>
+        Integration &ldquo;Industrial Ventilation Technology&ldquo; (carve out)
+      </>
+    ),
+    description: (
+      <>
+        Subproject manager data migration and contact person for master data
+        management<br></br>
+        Transfer of a complete product line from subsidiary into the existing
+        SAP system ebm-papst Mulfingen in cooperation with external company
+      </>
+    )
+  }
+]
 
 const Page: FC<NextPage> = () => {
-  const { user, status } = useFNT()
+  const { loading } = useRestrictedArea('fnt')
 
   return (
     <Layout title='Resume'>
-      {status === 'loading' ? (
+      {loading ? (
         <Center px='xl'>
           <Loader size='xl'></Loader>
         </Center>
-      ) : status === 'authenticated' ? (
+      ) : (
         <Pod>
           <Grid gutter='xl'>
             <Grid.Col span={4}>
@@ -48,10 +207,12 @@ const Page: FC<NextPage> = () => {
                   <Text>Software Developer</Text>
                 </Stack>
                 <Stack>
-                  <Text>
-                    Ich bin ein demonstrativer Text mit Knusperfische. Wir
-                    Wiener Waschweiber würden weisse Wäsche waschen, wenn wir
-                    wüssten wo warmes Wasser wäre.
+                  <Text color='dimmed'>
+                    To utilize my skills and expertise in software development,
+                    to contribute positively to a dynamic organization that
+                    values creativity, collaboration, and innovation, while
+                    continually expanding my knowledge and skills to achieve
+                    professional growth and personal fulfillment.
                   </Text>
                 </Stack>
                 <Stack mt='xl' spacing='sm'>
@@ -64,7 +225,7 @@ const Page: FC<NextPage> = () => {
                     <Text span>stefan.buechold@gmail.com</Text>
                   </Group>
                   <Group noWrap align='flex-start'>
-                    <Phone></Phone>
+                    <DeviceMobile></DeviceMobile>
                     <Text span>+49 160 90 469 717</Text>
                   </Group>
                   <Group noWrap align='flex-start'>
@@ -84,147 +245,87 @@ const Page: FC<NextPage> = () => {
                   <Text fw={700}>Languages</Text>
                   <Text>German (mother tongue)</Text>
                   <Text>English, fluent in spoken and written</Text>
-                  <Text>Französisch, basic</Text>
+                  <Text>French, basic</Text>
                 </Stack>
               </Stack>
             </Grid.Col>
             <Grid.Col span={8}>
               <Stack>
-                <Text fz='lg' fw={700}>
-                  Working experience
-                </Text>
-                <Timeline>
-                  <Timeline.Item title='2018 - 2024' bulletSize={24}>
-                    <Text color='cyan' fw={500}>
-                      Forellenfilets
-                    </Text>
-                    <Text color='dimmed' size='sm'>
-                      Default bullet without anything
-                    </Text>
-                  </Timeline.Item>
-                  <Timeline.Item
-                    title='2024 - 2028'
-                    bulletSize={36}
-                    bullet={
-                      <Avatar
-                        size={34}
-                        radius='xl'
-                        src='https://avatars0.githubusercontent.com/u/10353856?s=460&u=88394dfd67727327c1f7670a1764dc38a8a24831&v=4'
-                      />
-                    }
-                  >
-                    <Text color='cyan' fw={500}>
-                      Steaks
-                    </Text>
-                    <Text color='dimmed' size='sm'>
-                      Timeline bullet as avatar image
-                    </Text>
-                  </Timeline.Item>
-                  <Timeline.Item
-                    title='Icon'
-                    bulletSize={24}
-                    bullet={<Sun size='0.8rem' />}
-                  >
-                    <Text color='cyan' fw={500}>
-                      Enchiladas
-                    </Text>
-                    <Text color='dimmed' size='sm'>
-                      Timeline bullet as icon
-                    </Text>
-                  </Timeline.Item>
-                  <Timeline.Item
-                    title='ThemeIcon'
-                    bulletSize={24}
-                    bullet={
-                      <ThemeIcon
-                        size={22}
-                        variant='gradient'
-                        gradient={{ from: 'lime', to: 'cyan' }}
-                        radius='xl'
-                      >
-                        <Video size='0.8rem' />
-                      </ThemeIcon>
-                    }
-                  >
-                    <Text color='cyan' fw={500}>
-                      Tacos
-                    </Text>
-                    <Text color='dimmed' size='sm'>
-                      Timeline bullet as ThemeIcon component
-                    </Text>
-                  </Timeline.Item>
+                <Group spacing='sm'>
+                  <LayersLinked size={36}></LayersLinked>
+                  <Text fz='lg' fw={700}>
+                    Working experience
+                  </Text>
+                </Group>
+                <Timeline
+                  lineWidth={2}
+                  ml={8}
+                  color='cyan'
+                  active={experience.length - 1}
+                >
+                  {experience.map(({ time, title, description }, index) => {
+                    return (
+                      <Timeline.Item key={index} title={time}>
+                        <Text color='cyan' fw={500}>
+                          {title}
+                        </Text>
+                        <Text color='dimmed' size='sm'>
+                          {description}
+                        </Text>
+                      </Timeline.Item>
+                    )
+                  })}
                 </Timeline>
               </Stack>
               <Stack mt='xl'>
-                <Text fz='lg' fw={700}>
-                  Educational path
-                </Text>
-                <Timeline>
-                  <Timeline.Item title='Default bullet' bulletSize={24}>
-                    <Text color='dimmed' size='sm'>
-                      Default bullet without anything
-                    </Text>
-                  </Timeline.Item>
-                  <Timeline.Item
-                    title='Avatar'
-                    bulletSize={24}
-                    bullet={
-                      <Avatar
-                        size={22}
-                        radius='xl'
-                        src='https://avatars0.githubusercontent.com/u/10353856?s=460&u=88394dfd67727327c1f7670a1764dc38a8a24831&v=4'
-                      />
-                    }
-                  >
-                    <Text color='dimmed' size='sm'>
-                      Timeline bullet as avatar image
-                    </Text>
-                  </Timeline.Item>
-                  <Timeline.Item
-                    title='Icon'
-                    bulletSize={24}
-                    bullet={<Sun size='0.8rem' />}
-                  >
-                    <Text color='dimmed' size='sm'>
-                      Timeline bullet as icon
-                    </Text>
-                  </Timeline.Item>
-                  <Timeline.Item
-                    title='ThemeIcon'
-                    bulletSize={24}
-                    bullet={
-                      <ThemeIcon
-                        size={22}
-                        variant='gradient'
-                        gradient={{ from: 'lime', to: 'cyan' }}
-                        radius='xl'
-                      >
-                        <Video size='0.8rem' />
-                      </ThemeIcon>
-                    }
-                  >
-                    <Text color='dimmed' size='sm'>
-                      Timeline bullet as ThemeIcon component
-                    </Text>
-                  </Timeline.Item>
+                <Group spacing='sm'>
+                  <School size='36'></School>
+                  <Text fz='lg' fw={700}>
+                    Educational path
+                  </Text>
+                </Group>
+                <Timeline
+                  lineWidth={2}
+                  ml={8}
+                  color='cyan'
+                  active={education.length - 1}
+                >
+                  {education.map(({ time, title, description }, index) => {
+                    return (
+                      <Timeline.Item key={index} title={time}>
+                        <Text color='cyan' fw={500}>
+                          {title}
+                        </Text>
+                        <Text color='dimmed' size='sm'>
+                          {description}
+                        </Text>
+                      </Timeline.Item>
+                    )
+                  })}
                 </Timeline>
               </Stack>
               <Stack mt='xl'>
-                <Text fw={700} fz='lg'>
-                  Certificates
-                </Text>
-                <Text>Chines Busines (Segedinzer Gulasch)</Text>
+                <Group spacing='sm'>
+                  <Certificate size='36'></Certificate>
+                  <Text fz='lg' fw={700}>
+                    Certificate
+                  </Text>
+                </Group>
+                <Text>Chinese Business</Text>
               </Stack>
               <Stack mt='xl'>
-                <Text fw={700} fz='lg'>
-                  Skills
-                </Text>
-                <Text>Kochen, Essen, trinken</Text>
+                <Group spacing='sm'>
+                  <Ballon size='36'></Ballon>
+                  <Text fz='lg' fw={700}>
+                    Hobbies and Interests
+                  </Text>
+                </Group>
+                <Text>Music, podcasts, IT, sports and cooking</Text>
               </Stack>
             </Grid.Col>
           </Grid>
         </Pod>
-      ) : null}
+      )}
     </Layout>
   )
 }

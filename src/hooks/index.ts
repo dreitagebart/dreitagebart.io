@@ -1,2 +1,2 @@
-export * from './use-fnt'
+export * from './use-restricted-area'
 export * from './use-scrollspy'

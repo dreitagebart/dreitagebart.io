@@ -1,30 +1,20 @@
-import {
-  Box,
-  Center,
-  Flex,
-  Grid,
-  Group,
-  Loader,
-  Stack,
-  Text,
-  Title
-} from '@mantine/core'
+import { Center, Flex, Grid, Loader, Stack, Text } from '@mantine/core'
 import { NextPage } from 'next'
 import { FC } from 'react'
 
 import { Heading, Layout, PageTitle, Pod, Section, TOC } from '../../components'
-import { useFNT } from '../../hooks'
+import { useRestrictedArea } from '../../hooks'
 
 const Page: FC<NextPage> = () => {
-  const { user, status } = useFNT()
+  const { loading } = useRestrictedArea('fnt')
 
   return (
     <Layout title='Experience'>
-      {status === 'loading' ? (
+      {loading ? (
         <Center px='xl'>
           <Loader size='xl'></Loader>
         </Center>
-      ) : status === 'authenticated' ? (
+      ) : (
         <Pod>
           <Flex gap='xl' direction='row'>
             <Stack sx={{ width: '100%' }}>
@@ -77,7 +67,7 @@ const Page: FC<NextPage> = () => {
             ></TOC>
           </Flex>
         </Pod>
-      ) : null}
+      )}
     </Layout>
   )
 }
