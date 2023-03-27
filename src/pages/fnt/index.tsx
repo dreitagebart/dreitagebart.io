@@ -21,19 +21,9 @@ const Page: FC<NextPage> = () => {
             <SubTitle>
               I say a warm welcome to the employee of the company {user?.name}.
               <br />
-              Please click the upper right menu button to navigate through the
+              Please click the upper right menu button to navigate through
               exclusive content
             </SubTitle>
-            {/* <Group>
-              <Button
-                size='xl'
-                variant='gradient'
-                component={Link}
-                href={`/${user?.name}`}
-              >
-                Access content
-              </Button>
-            </Group> */}
           </>
         )}
       </Pod>
