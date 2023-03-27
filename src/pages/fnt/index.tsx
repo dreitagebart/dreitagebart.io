@@ -1,25 +1,21 @@
-import { Button, Center, Group, Loader } from '@mantine/core'
+import { Center, Loader } from '@mantine/core'
 import { NextPage } from 'next'
-import { useSession } from 'next-auth/react'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 
 import { Layout, PageTitle, Pod, SubTitle } from '../../components'
-import { useFNT } from '../../hooks'
+import { useRestrictedArea } from '../../hooks'
 
 const Page: FC<NextPage> = () => {
-  const router = useRouter()
-  const { user, status } = useFNT()
+  const { user, loading } = useRestrictedArea('fnt')
 
   return (
     <Layout title='Exclusive content'>
       <Pod>
-        {status === 'loading' ? (
+        {loading ? (
           <Center px='xl'>
             <Loader size='xl'></Loader>
           </Center>
-        ) : status === 'authenticated' ? (
+        ) : (
           <>
             <PageTitle>Portfolio</PageTitle>
             <SubTitle>
