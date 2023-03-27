@@ -30,20 +30,12 @@ export const authOptions: AuthOptions = {
   },
   callbacks: {
     session: async ({ session, user, token }) => {
-      console.log(
-        'session callback',
-        'session',
-        JSON.stringify(session, null, 2)
-      )
-      console.log('session callback', 'token', JSON.stringify(token, null, 2))
-
       session.user.username = token.username
 
       return session
     },
     jwt: async ({ token, user, account, profile, isNewUser }) => {
       if (user) {
-        console.log('token available', JSON.stringify(user, null, 2))
         token.name = user.name || ''
         token.username = user.id
         token.image = user.image || ''
