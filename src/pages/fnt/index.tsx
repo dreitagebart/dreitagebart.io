@@ -35,7 +35,7 @@ const Page: FC<NextPage> = () => {
               </Button>
             </Group> */}
           </>
-        ) : null}
+        )}
       </Pod>
     </Layout>
   )
