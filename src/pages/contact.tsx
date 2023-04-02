@@ -11,14 +11,14 @@ import {
 } from '@mantine/core'
 import { useForm } from '@mantine/form'
 import { NextPage } from 'next'
-import { ChangeEvent, FC, useCallback } from 'react'
+import { ChangeEvent, useCallback } from 'react'
 import { Send } from 'tabler-icons-react'
 
 import profile from '../assets/images/annoyed.png'
 import { Layout, PageTitle, Pod, SubTitle } from '../components'
 import { useMediaQuery } from '@mantine/hooks'
 
-const Page: FC<NextPage> = () => {
+const Page: NextPage = () => {
   const largeScreen = useMediaQuery('(min-width: 48em)', true, {
     getInitialValueInEffect: false
   })

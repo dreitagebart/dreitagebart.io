@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button, Center, createStyles, rem, Stack } from '@mantine/core'
 import { NextPage } from 'next'
-import { FC } from 'react'
 import { Home } from 'tabler-icons-react'
 
 import error404 from '../assets/images/error404.png'
@@ -25,7 +24,6 @@ const useStyles = createStyles((theme) => ({
     }
   },
   text: {
-    // width: rem(620),
     textAlign: 'center',
     marginTop: theme.spacing.xl,
     [`@media (max-width: ${theme.breakpoints.sm})`]: {
@@ -34,7 +32,7 @@ const useStyles = createStyles((theme) => ({
   }
 }))
 
-const Page: FC<NextPage> = () => {
+const Page: NextPage = () => {
   const { classes } = useStyles()
 
   return (

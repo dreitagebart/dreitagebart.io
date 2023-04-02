@@ -48,19 +48,19 @@ const useStyles = createStyles((theme) => ({
   }
 }))
 
-const footerLinks: Array<{
-  label: string
-  href: string
-}> = [
-  {
-    label: 'Privacy policy',
-    href: '/privacy'
-  },
-  {
-    label: 'Impressum',
-    href: '/impressum'
-  }
-]
+// const footerLinks: Array<{
+//   label: string
+//   href: string
+// }> = [
+//   {
+//     label: 'Privacy policy',
+//     href: '/privacy'
+//   },
+//   {
+//     label: 'Impressum',
+//     href: '/impressum'
+//   }
+// ]
 
 // const creditsLinks: Array<{
 //   label: string
@@ -135,7 +135,7 @@ export const Footer: FC<Props> = ({ ...props }) => {
               </Text>{' '}
               copyright 2023 dreitagebart
             </Text>
-            <Group spacing='xl'>
+            {/* <Group spacing='xl'>
               {footerLinks.map(({ label, href }) => {
                 return (
                   <Link href={href} key={href}>
@@ -145,7 +145,7 @@ export const Footer: FC<Props> = ({ ...props }) => {
                   </Link>
                 )
               })}
-            </Group>
+            </Group> */}
           </Stack>
           <ThemeSwitch></ThemeSwitch>
         </Group>

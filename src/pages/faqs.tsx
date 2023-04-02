@@ -1,8 +1,8 @@
 import Image from 'next/image'
-import { Accordion, Center, Col, Grid } from '@mantine/core'
+import { Accordion, Center, Grid } from '@mantine/core'
 import { createStyles } from '@mantine/core'
 import { NextPage } from 'next'
-import { FC, ReactNode } from 'react'
+import { ReactNode } from 'react'
 import { rem } from '@mantine/core'
 
 import whaaat from '../assets/images/whaaat.png'
@@ -55,6 +55,11 @@ const faqs: Array<{
     value: 'coffee-or-tea'
   },
   {
+    question: 'Why do you always wear a cap?',
+    answer: <>Why don&apos;t you always wear a cap?</>,
+    value: 'cap'
+  },
+  {
     question: 'Cat or dog?',
     answer: 'Dog',
     value: 'catdog'
@@ -86,7 +91,7 @@ const faqs: Array<{
   }
 ]
 
-const Page: FC<NextPage> = () => {
+const Page: NextPage = () => {
   const { classes } = useStyles()
 
   return (
@@ -97,22 +102,18 @@ const Page: FC<NextPage> = () => {
           You want to ask me some questions...?<br></br>Perhaps you can try to
           find the answers here.
         </SubTitle>
-        <Grid gutter={50}>
-          <Col span={12} md={6}>
-            <Center>
+        <Grid gutter={50} align='center'>
+          <Grid.Col span={12} md={6}>
+            <Center sx={{}}>
               <Image
                 src={whaaat}
                 alt='Frequently Asked Questions'
                 className={classes.image}
               />
             </Center>
-          </Col>
-          <Col span={12} md={6}>
-            <Accordion
-              chevronPosition='left'
-              defaultValue={faqs[0].value}
-              variant='separated'
-            >
+          </Grid.Col>
+          <Grid.Col span={12} md={6}>
+            <Accordion chevronPosition='left' variant='separated'>
               {faqs.map(({ question, answer, value }) => {
                 return (
                   <Accordion.Item
@@ -126,7 +127,7 @@ const Page: FC<NextPage> = () => {
                 )
               })}
             </Accordion>
-          </Col>
+          </Grid.Col>
         </Grid>
       </Pod>
     </Layout>

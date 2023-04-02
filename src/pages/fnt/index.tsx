@@ -1,11 +1,10 @@
 import { Center, Loader } from '@mantine/core'
 import { NextPage } from 'next'
-import { FC } from 'react'
 
 import { Layout, PageTitle, Pod, SubTitle } from '../../components'
 import { useRestrictedArea } from '../../hooks'
 
-const Page: FC<NextPage> = () => {
+const Page: NextPage = () => {
   const { user, loading } = useRestrictedArea('fnt')
 
   return (

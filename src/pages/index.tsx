@@ -1,10 +1,8 @@
 import Typed from 'react-typed'
-import { Center, createStyles, rem } from '@mantine/core'
+import { createStyles, rem } from '@mantine/core'
 import { NextPage } from 'next'
-import { FC } from 'react'
 import 'react-typed/dist/animatedCursor.css'
 
-// import me from '../../public/me.json'
 import { Layout, Me, Pod } from '../components'
 
 const useStyles = createStyles((theme) => ({
@@ -40,8 +38,7 @@ const useStyles = createStyles((theme) => ({
   }
 }))
 
-const Page: FC<NextPage> = () => {
-  // const [commands, setCommands] = useState(1)
+const Page: NextPage = () => {
   const { classes } = useStyles()
 
   return (

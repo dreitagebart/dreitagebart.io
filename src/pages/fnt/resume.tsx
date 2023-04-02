@@ -1,8 +1,7 @@
 import Image from 'next/image'
-import { Avatar, ThemeIcon, Timeline } from '@mantine/core'
+import { Timeline } from '@mantine/core'
 import { Center, Grid, Group, Loader, Stack, Text } from '@mantine/core'
 import { NextPage } from 'next'
-import { FC, ReactNode } from 'react'
 import {
   Ballon,
   Cake,
@@ -11,22 +10,15 @@ import {
   DeviceMobile,
   LayersLinked,
   Mail,
-  School,
-  Sun,
-  Video
+  School
 } from 'tabler-icons-react'
 
-import profile from '../../assets/images/profile.jpg'
+import profile from '../../assets/images/lowkey_color.jpg'
 import { Layout, Pod } from '../../components'
 import { useRestrictedArea } from '../../hooks'
+import { TimelineItems } from '../../utils'
 
-type Item = {
-  time: ReactNode
-  title: ReactNode
-  description: ReactNode
-}
-
-const education: Array<Item> = [
+const education: TimelineItems = [
   {
     time: '2002',
     title: 'School graduation middle school maturity',
@@ -55,127 +47,30 @@ const education: Array<Item> = [
   }
 ]
 
-const experience: Array<Item> = [
+const experience: TimelineItems = [
+  {
+    time: 'since 2017 until today',
+    title: 'WITTENSTEIN SE',
+    description: <>Software Developer</>
+  },
+  {
+    time: '2008 - 2017',
+    title: 'ebm-papst GmbH & Co. KG',
+    description: (
+      <>
+        Inhouse Consultant for Master and Product Data Management and
+        application developer
+      </>
+    )
+  },
   {
     time: '2007 - 2008',
-    title: 'Team lead / key account management for logistics',
-    description: 'Planning and execution of deliveries to key account Amazon'
-  },
-  {
-    time: '2011 - 2012',
-    title: 'SAP implementation ebm-papst branch office France (Obernai)',
-    description: (
-      <>
-        Subproject manager for data migration and master/product data management
-        <br></br>
-        Transfer of all data from legacy system to SAP
-      </>
-    )
-  },
-  {
-    time: '2012 - 2013',
-    title: 'SAP implementation ebm-papst branch office Italy (Mozzate)',
-    description: (
-      <>
-        Subproject manager for data migration and master/product data management
-        <br></br>
-        Transfer of all data from legacy system to SAP
-      </>
-    )
-  },
-  {
-    time: '2014 - 2015',
-    title: 'SAP implementation ebm-papst branch office China (Shanghai)',
-    description: (
-      <>
-        Support as &ldquo;German expert&ldquo; in the area of data migration and
-        master data management
-      </>
-    )
-  },
-  {
-    time: 'since 2014',
-    title: 'Project epGML (ebm-papst Globale MaterialnummernLogik)',
-    description: (
-      <>
-        Contact person and carry out the implementation of a non-speaking
-        material number logic in SAP
-      </>
-    )
-  },
-  {
-    time: 'since 2015',
-    title: 'Project ECM (Engineering Change Management)',
-    description: (
-      <>
-        Support in the implementation and contact person in the development of a
-        management program for change projects on products
-      </>
-    )
-  },
-  {
-    time: '2015',
-    title: 'Collaboration epIN',
-    description: (
-      <>
-        Recruitment and development of an IT department in the ebm-papst branch
-        office in India (Chennai), which mainly supports the SAP area in the
-        Asian region in cooperation with IT ebm-papst Mulfingen.
-      </>
-    )
-  },
-  {
-    time: '2015',
-    title:
-      'Technology conversion master data management at ebm-papst Mulfingen',
-    description: (
-      <>
-        Conversion of the technology of an existing master data management in
-        SAP - main contact person + implementation support
-      </>
-    )
-  },
-  {
-    time: '2016',
-    title:
-      'SAP implementation EWM at ebm-papst Mulfingen (Extended Warehouse Management)',
-    description: (
-      <>
-        Main contact person for master data management<br></br>
-        Implementing requirements from project<br></br>
-        Adaptation of material master data for EWM processes (mass changes)
-      </>
-    )
-  },
-  {
-    time: '2016',
-    title: 'SAP implementation QM at ebm-papst Mulfingen (Quality Management)',
-    description: (
-      <>
-        Main contact person for master data management<br></br>
-        Implementing requirements from project
-      </>
-    )
-  },
-  {
-    time: '2016 - 2017',
-    title: (
-      <>
-        Integration &ldquo;Industrial Ventilation Technology&ldquo; (carve out)
-      </>
-    ),
-    description: (
-      <>
-        Subproject manager data migration and contact person for master data
-        management<br></br>
-        Transfer of a complete product line from subsidiary into the existing
-        SAP system ebm-papst Mulfingen in cooperation with external company
-      </>
-    )
+    title: 'Computation Systemhaus GmbH & Co. KG',
+    description: <>Team lead / key account management for logistics</>
   }
 ]
 
-const Page: FC<NextPage> = () => {
+const Page: NextPage = () => {
   const { loading } = useRestrictedArea('fnt')
 
   return (
@@ -187,12 +82,12 @@ const Page: FC<NextPage> = () => {
       ) : (
         <Pod>
           <Grid gutter='xl'>
-            <Grid.Col span={4}>
+            <Grid.Col sm={12} md={4}>
               <Stack>
                 <Stack align='center'>
                   <Image
                     src={profile}
-                    style={{ borderRadius: '100%', width: 180, height: 'auto' }}
+                    style={{ borderRadius: 12, maxWidth: 300, height: 'auto' }}
                     alt='Stefan Büchold'
                   ></Image>
                 </Stack>
@@ -249,7 +144,7 @@ const Page: FC<NextPage> = () => {
                 </Stack>
               </Stack>
             </Grid.Col>
-            <Grid.Col span={8}>
+            <Grid.Col sm={12} md={8}>
               <Stack>
                 <Group spacing='sm'>
                   <LayersLinked size={36}></LayersLinked>

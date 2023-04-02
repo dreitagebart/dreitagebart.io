@@ -1,10 +1,9 @@
 import { Text } from '@mantine/core'
 import { NextPage } from 'next'
-import { FC } from 'react'
 
 import { Heading, Layout, PageTitle, Pod, SubTitle } from '../components'
 
-const Page: FC<NextPage> = () => {
+const Page: NextPage = () => {
   return (
     <Layout title='About'>
       <Pod>

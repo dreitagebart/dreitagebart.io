@@ -3,7 +3,6 @@ import { Text } from '@mantine/core'
 import { Badge } from '@mantine/core'
 import { Center, Container, Loader, SimpleGrid } from '@mantine/core'
 import { NextPage } from 'next'
-import { FC } from 'react'
 import {
   Certificate,
   Coin,
@@ -82,7 +81,7 @@ const useStyles = createStyles((theme) => ({
   }
 }))
 
-const Page: FC<NextPage> = () => {
+const Page: NextPage = () => {
   const { loading } = useRestrictedArea('fnt')
   const { classes } = useStyles()
 

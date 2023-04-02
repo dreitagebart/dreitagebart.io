@@ -33,14 +33,14 @@ const items: NavbarItems = [
     label: 'FAQs',
     href: '/faqs'
   },
-  {
-    label: 'Blog',
-    href: '/blog'
-  },
-  {
-    label: 'Things',
-    href: '/things'
-  },
+  // {
+  //   label: 'Blog',
+  //   href: '/blog'
+  // },
+  // {
+  //   label: 'Things',
+  //   href: '/things'
+  // },
   {
     label: 'Contact',
     href: '/contact'
