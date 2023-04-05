@@ -17,9 +17,12 @@ import { NavbarItems } from '../../utils'
 import { NavbarItem } from './NavbarItem'
 import {
   ActivityHeartbeat,
+  Album,
   Briefcase,
   ChartTreemap,
-  Logout
+  LiveView,
+  Logout,
+  Stack2
 } from 'tabler-icons-react'
 
 interface Props {}
@@ -94,6 +97,14 @@ export const Navbar: FC<Props> = () => {
                 <Menu.Item icon={<ChartTreemap></ChartTreemap>}>
                   <UnstyledButton
                     component={Link}
+                    href={`/${session.user?.username}/biography`}
+                  >
+                    <Text>Biography</Text>
+                  </UnstyledButton>
+                </Menu.Item>
+                <Menu.Item icon={<Album></Album>}>
+                  <UnstyledButton
+                    component={Link}
                     href={`/${session.user?.username}/resume`}
                   >
                     <Text>Resume</Text>
@@ -107,12 +118,12 @@ export const Navbar: FC<Props> = () => {
                     <Text>Experience</Text>
                   </UnstyledButton>
                 </Menu.Item>
-                <Menu.Item icon={<Briefcase></Briefcase>}>
+                <Menu.Item icon={<Stack2></Stack2>}>
                   <UnstyledButton
                     component={Link}
-                    href={`/${session.user?.username}/work`}
+                    href={`/${session.user?.username}/skills`}
                   >
-                    <Text>Work</Text>
+                    <Text>Skills</Text>
                   </UnstyledButton>
                 </Menu.Item>
                 <Menu.Divider></Menu.Divider>
