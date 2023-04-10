@@ -243,6 +243,10 @@ const Page: NextPage = () => {
                 <td></td>
               </tr>
               <tr>
+                <td>Git</td>
+                <td></td>
+              </tr>
+              <tr>
                 <td>Kubernetes / Rancher</td>
                 <td></td>
               </tr>
