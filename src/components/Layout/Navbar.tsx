@@ -1,12 +1,29 @@
-import { Burger, Menu, UnstyledButton, useMantineTheme } from '@mantine/core'
+import Link from 'next/link'
+import {
+  Avatar,
+  Burger,
+  Menu,
+  Text,
+  UnstyledButton,
+  useMantineTheme
+} from '@mantine/core'
 import { Box, Group } from '@mantine/core'
 import { useDisclosure, useMediaQuery } from '@mantine/hooks'
-import Link from 'next/link'
+import { signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 
 import { NavbarItems } from '../../utils'
 import { NavbarItem } from './NavbarItem'
+import {
+  ActivityHeartbeat,
+  Album,
+  Briefcase,
+  ChartTreemap,
+  LiveView,
+  Logout,
+  Stack2
+} from 'tabler-icons-react'
 
 interface Props {}
 
@@ -16,13 +33,17 @@ const items: NavbarItems = [
     href: '/about'
   },
   {
-    label: 'Blog',
-    href: '/blog'
+    label: 'FAQs',
+    href: '/faqs'
   },
-  {
-    label: 'Things',
-    href: '/things'
-  },
+  // {
+  //   label: 'Blog',
+  //   href: '/blog'
+  // },
+  // {
+  //   label: 'Things',
+  //   href: '/things'
+  // },
   {
     label: 'Contact',
     href: '/contact'
@@ -37,6 +58,7 @@ export const Navbar: FC<Props> = () => {
   })
   const [opened, { toggle }] = useDisclosure(false)
   const label = opened ? 'Close navigation' : 'Open navigation'
+  const { data: session, status } = useSession()
 
   return (
     <Box component='nav'>
@@ -53,6 +75,64 @@ export const Navbar: FC<Props> = () => {
               </NavbarItem>
             )
           })}
+          {status === 'authenticated' ? (
+            <Menu
+              trigger='click'
+              transitionProps={{ transition: 'scale-y' }}
+              position='bottom-end'
+              width={240}
+              withinPortal
+            >
+              <Menu.Target>
+                <Avatar
+                  sx={{ cursor: 'pointer' }}
+                  size='md'
+                  src={`/companies/${session.user?.image}`}
+                ></Avatar>
+              </Menu.Target>
+              <Menu.Dropdown>
+                <Menu.Label>
+                  logged in as <b>{session.user?.name}</b>
+                </Menu.Label>
+                <Menu.Item icon={<ChartTreemap></ChartTreemap>}>
+                  <UnstyledButton
+                    component={Link}
+                    href={`/${session.user?.username}/biography`}
+                  >
+                    <Text>Biography</Text>
+                  </UnstyledButton>
+                </Menu.Item>
+                <Menu.Item icon={<Album></Album>}>
+                  <UnstyledButton
+                    component={Link}
+                    href={`/${session.user?.username}/resume`}
+                  >
+                    <Text>Resume</Text>
+                  </UnstyledButton>
+                </Menu.Item>
+                <Menu.Item icon={<ActivityHeartbeat></ActivityHeartbeat>}>
+                  <UnstyledButton
+                    component={Link}
+                    href={`/${session.user?.username}/experience`}
+                  >
+                    <Text>Experience</Text>
+                  </UnstyledButton>
+                </Menu.Item>
+                <Menu.Item icon={<Stack2></Stack2>}>
+                  <UnstyledButton
+                    component={Link}
+                    href={`/${session.user?.username}/skills`}
+                  >
+                    <Text>Skills</Text>
+                  </UnstyledButton>
+                </Menu.Item>
+                <Menu.Divider></Menu.Divider>
+                <Menu.Item icon={<Logout></Logout>} onClick={() => signOut()}>
+                  Logout
+                </Menu.Item>
+              </Menu.Dropdown>
+            </Menu>
+          ) : null}
         </Group>
       ) : (
         <Menu

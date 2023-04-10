@@ -4,7 +4,7 @@ import { Group, Text, UnstyledButton, useMantineTheme } from '@mantine/core'
 import { FC } from 'react'
 import { useMediaQuery } from '@mantine/hooks'
 
-import profile from '../../assets/images/profile.jpg'
+import profile from '../../assets/images/profile.png'
 import { handwritingFont } from '../../styles/theme'
 
 interface Props {}
@@ -24,6 +24,7 @@ export const Logo: FC<Props> = () => {
             alt='profile'
             width={largeScreen ? 72 : 52}
             style={{
+              // background: '#fff',
               borderRadius: '100%'
             }}
           ></Image>

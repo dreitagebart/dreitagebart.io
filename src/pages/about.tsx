@@ -1,10 +1,9 @@
 import { Text } from '@mantine/core'
 import { NextPage } from 'next'
-import { FC } from 'react'
 
-import { Heading, Layout, PageTitle, Pod, SubTitle } from '../components'
+import { Heading, Layout, PageTitle, Pod, SubTitle, Tldr } from '../components'
 
-const Page: FC<NextPage> = () => {
+const Page: NextPage = () => {
   return (
     <Layout title='About'>
       <Pod>
@@ -14,12 +13,56 @@ const Page: FC<NextPage> = () => {
           without quoting my mom or dad. This would probably be the most
           interesting thing you&apos;ll find on this website.
         </SubTitle>
-        <SubTitle>
+        <Tldr>
           You&apos;re probably wondering who I am and why you should trust me.
           Well, I can assure you that at least I take my coffee black.
-        </SubTitle>
+        </Tldr>
         <Heading mt='xl' id='who-i-am'>
           Who I am
+        </Heading>
+        <Text mt='md'>
+          [Your Name] is a passionate [Your Profession or Field] with [Number]
+          years of experience in [Your Industry or Specialty]. [He/She] is known
+          for [Your Key Strengths or Achievements], and is dedicated to [Your
+          Values or Goals].
+        </Text>
+        <Text mt='md'>
+          Born and raised in [Your Hometown or Region], [Your Name] developed an
+          early interest in [Your Passion or Field], and pursued [Your Education
+          or Training] to further hone [His/Her] skills. [He/She] has since
+          worked with a variety of clients and organizations, delivering
+          exceptional results and building lasting relationships.
+        </Text>
+        <Text mt='md'>
+          When not working, [Your Name] enjoys [Your Hobbies or Interests], and
+          is an active member of [Your Community or Professional Network].
+          [He/She] is committed to giving back, and is involved with [Your
+          Volunteer or Charity Work].
+        </Text>
+        <Text mt='md'>
+          Overall, [Your Name] is a driven, creative, and dedicated
+          professional, with a passion for [Your Industry or Specialty] and a
+          commitment to excellence in all [He/She] does.
+        </Text>
+        <Heading mt='xl' id='what-i-do'>
+          What I do
+        </Heading>
+        <Text>
+          Pellentesque habitant morbi tristique senectus et netus et malesuada
+          fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
+          ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
+          egestas semper. Aenean ultricies mi vitae est. Mauris placerat
+          eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.
+          Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet,
+          wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum
+          rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in
+          turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
+          faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.
+          Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
+          facilisis luctus, metus
+        </Text>
+        <Heading mt='xl' id='what-i-think'>
+          What I think
         </Heading>
         <Text>
           I&apos;m Stefan, and I believe that life is a journey of
@@ -49,40 +92,6 @@ const Page: FC<NextPage> = () => {
           technologies, a lover of music, and a believer in integrity. I&apos;m
           excited to see where life takes me next and to continue on this
           journey of self-discovery.
-        </Text>
-        <Heading mt='xl' id='what-i-do'>
-          What I do
-        </Heading>
-        <Text>
-          Pellentesque habitant morbi tristique senectus et netus et malesuada
-          fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
-          ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
-          egestas semper. Aenean ultricies mi vitae est. Mauris placerat
-          eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.
-          Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet,
-          wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum
-          rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in
-          turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
-          faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.
-          Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
-          facilisis luctus, metus
-        </Text>
-        <Heading mt='xl' id='what-i-think'>
-          What I think
-        </Heading>
-        <Text>
-          Pellentesque habitant morbi tristique senectus et netus et malesuada
-          fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,
-          ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam
-          egestas semper. Aenean ultricies mi vitae est. Mauris placerat
-          eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.
-          Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet,
-          wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum
-          rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in
-          turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
-          faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.
-          Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor,
-          facilisis luctus, metus
         </Text>
       </Pod>
     </Layout>

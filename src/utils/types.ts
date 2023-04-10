@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 interface OpenGraphProps {
   title: string
   description: string
@@ -7,6 +9,14 @@ interface OpenGraphProps {
   url: string
   type: 'website' | 'article'
 }
+
+export type TimelineItem = {
+  time: ReactNode
+  title: ReactNode
+  description: ReactNode
+}
+
+export type TimelineItems = Array<TimelineItem>
 
 export type NavbarItem = {
   label: string

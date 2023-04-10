@@ -1,9 +1,8 @@
 import { NextPage } from 'next'
-import { FC } from 'react'
 
 import { Layout, PageTitle, Pod } from '../components'
 
-const Page: FC<NextPage> = () => {
+const Page: NextPage = () => {
   return (
     <Layout title='Impressum'>
       <Pod>

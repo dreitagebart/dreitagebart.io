@@ -7,18 +7,26 @@ import {
   Stack,
   Text,
   UnstyledButton,
-  Tooltip
+  Tooltip,
+  rem
 } from '@mantine/core'
-
-import { FC, ReactNode } from 'react'
-import { Pod } from './Pod'
 import { BrandGithub, BrandLinkedin, BrandTwitter } from 'tabler-icons-react'
+import { FC, ReactNode } from 'react'
+
+import { Pod } from './Pod'
 import { ThemeSwitch } from './ThemeSwitch'
 import { handwritingFont } from '../../styles/theme'
 
 interface Props extends BoxProps {}
 
 const useStyles = createStyles((theme) => ({
+  slogan: {
+    fontFamily: handwritingFont.style.fontFamily,
+    fontSize: rem(32),
+    [`@media (max-width: ${theme.breakpoints.sm})`]: {
+      fontSize: rem(24)
+    }
+  },
   link: {
     transition: 'all 500ms ease-out',
     color: theme.colors.gray[6],
@@ -31,22 +39,28 @@ const useStyles = createStyles((theme) => ({
     ':hover': {
       background: theme.colors.spin[8]
     }
+  },
+  copyright: {
+    fontSize: rem(18),
+    [`@media (max-width: ${theme.breakpoints.sm})`]: {
+      fontSize: rem(16)
+    }
   }
 }))
 
-const footerLinks: Array<{
-  label: string
-  href: string
-}> = [
-  {
-    label: 'Privacy policy',
-    href: '/privacy'
-  },
-  {
-    label: 'Impressum',
-    href: '/impressum'
-  }
-]
+// const footerLinks: Array<{
+//   label: string
+//   href: string
+// }> = [
+//   {
+//     label: 'Privacy policy',
+//     href: '/privacy'
+//   },
+//   {
+//     label: 'Impressum',
+//     href: '/impressum'
+//   }
+// ]
 
 // const creditsLinks: Array<{
 //   label: string
@@ -73,7 +87,7 @@ const socialLinks: Array<{
 }> = [
   {
     label: 'Twitter',
-    href: 'https://twitter.com',
+    href: 'https://twitter.com/dreitagebart',
     icon: <BrandTwitter size={32}></BrandTwitter>
   },
   {
@@ -95,20 +109,33 @@ export const Footer: FC<Props> = ({ ...props }) => {
     <Box component='footer' {...props}>
       <Pod>
         <Group mt='xl' position='apart'>
-          <Text size='xl' fw='bold' ff={handwritingFont.style.fontFamily}>
-            Creating things that matter
-          </Text>
-          <ThemeSwitch></ThemeSwitch>
+          <Text className={classes.slogan}>Creating things that matter</Text>
+          <Group spacing='xs'>
+            {socialLinks.map(({ label, href, icon }) => {
+              return (
+                <Tooltip label={label} key={label}>
+                  <Link
+                    className={classes.social}
+                    href={href}
+                    rel='noreferrer'
+                    target='_blank'
+                  >
+                    {icon}
+                  </Link>
+                </Tooltip>
+              )
+            })}
+          </Group>
         </Group>
-        <Group mt='lg' align='flex-start' grow>
+        <Group mt='lg' position='apart' align='flex-start'>
           <Stack spacing={4}>
-            <Text fw='bold'>
+            <Text className={classes.copyright}>
               <Text component='span' color={theme.colors.cyan[5]}>
                 &#47;&#47;
               </Text>{' '}
               copyright 2023 dreitagebart
             </Text>
-            <Group spacing='xl'>
+            {/* <Group spacing='xl'>
               {footerLinks.map(({ label, href }) => {
                 return (
                   <Link href={href} key={href}>
@@ -118,26 +145,9 @@ export const Footer: FC<Props> = ({ ...props }) => {
                   </Link>
                 )
               })}
-            </Group>
+            </Group> */}
           </Stack>
-          <Stack spacing={4}>
-            <Group spacing='xs'>
-              {socialLinks.map(({ label, href, icon }) => {
-                return (
-                  <Tooltip label={label} key={label}>
-                    <Link
-                      className={classes.social}
-                      href={href}
-                      rel='noreferrer'
-                      target='_blank'
-                    >
-                      {icon}
-                    </Link>
-                  </Tooltip>
-                )
-              })}
-            </Group>
-          </Stack>
+          <ThemeSwitch></ThemeSwitch>
         </Group>
       </Pod>
     </Box>
