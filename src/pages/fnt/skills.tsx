@@ -3,14 +3,7 @@ import { Text } from '@mantine/core'
 import { Badge } from '@mantine/core'
 import { Center, Container, Loader, SimpleGrid } from '@mantine/core'
 import { NextPage } from 'next'
-import {
-  Certificate,
-  Coin,
-  Cookie,
-  Gauge,
-  Truck,
-  User
-} from 'tabler-icons-react'
+import { Cookie, Gauge, Star, User } from 'tabler-icons-react'
 
 import {
   FeatureCard,
@@ -22,48 +15,8 @@ import {
   WorkCard
 } from '../../components'
 import { useRestrictedArea } from '../../hooks'
-
-const mockdata2 = [
-  {
-    title: 'Extreme performance',
-    description:
-      'This dust is actually a powerful poison that will even make a pro wrestler sick, Regice cloaks itself with frigid air of -328 degrees Fahrenheit',
-    icon: Gauge
-  },
-  {
-    title: 'Privacy focused',
-    description:
-      'People say it can run at the same speed as lightning striking, Its icy body is so cold, it will not melt even if it is immersed in magma',
-    icon: User
-  },
-  {
-    title: 'No third parties',
-    description:
-      'They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves',
-    icon: Cookie
-  }
-]
-
-const mockdata = [
-  {
-    icon: Truck,
-    title: 'Free Worldwide shipping',
-    description:
-      'As electricity builds up inside its body, it becomes more aggressive. One theory is that the electricity.'
-  },
-  {
-    icon: Certificate,
-    title: 'Best Quality Product',
-    description:
-      'Slakoth’s heart beats just once a minute. Whatever happens, it is content to loaf around motionless.'
-  },
-  {
-    icon: Coin,
-    title: 'Very Affordable Pricing',
-    description:
-      'Thought to have gone extinct, Relicanth was given a name that is a variation of the name of the person who discovered.'
-  }
-]
+import { List } from '@mantine/core'
+import { ThemeIcon } from '@mantine/core'
 
 const useStyles = createStyles((theme) => ({
   title: {
@@ -111,9 +64,7 @@ const Page: NextPage = () => {
             levels, nevertheless this page should give you a rough overview of
             my skills and knowledge.
           </SubTitle>
-          <Heading id='languages'>
-            Languages / Frameworks / Libraries / Technologies
-          </Heading>
+          <Heading id='languages'>Languages</Heading>
           <Table>
             <thead>
               <tr>
@@ -171,7 +122,7 @@ const Page: NextPage = () => {
                   <Badge color='blue'>proficient</Badge>
                 </td>
                 <td className={classes.remark}>
-                  I know it&apos; not that hard
+                  I know it&apos;s not that hard
                 </td>
               </tr>
               <tr>
@@ -208,159 +159,55 @@ const Page: NextPage = () => {
           <Heading mt='xl' id='software'>
             Frameworks / Libraries / Technologies
           </Heading>
-          <Table>
-            <thead>
-              <tr>
-                <th>Software</th>
-                <th>Level</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>React</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>NextJS / SSR / SSG</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Docker</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Linux / Fedora / Ubuntu</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>REST API</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>GraphQL</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Docker / Podman</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Git</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Kubernetes / Rancher</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Electron</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Tauri</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>React Native</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Wordpress</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Raspberry Pi</td>
-                <td></td>
-              </tr>
-            </tbody>
-          </Table>
+          <SubTitle>
+            In the following a list of things, which I use for my developments
+            in principle, but also master.
+          </SubTitle>
+          <List
+            spacing='xs'
+            size='sm'
+            center
+            icon={
+              // <ThemeIcon color='cyan' size={24} radius='xl'>
+              <Star size='1rem' color='cyan' />
+              // </ThemeIcon>
+            }
+          >
+            <List.Item>React</List.Item>
+            <List.Item>NextJS / SSR / SSG</List.Item>
+            <List.Item>Docker</List.Item>
+            <List.Item>Linux / Fedora / Ubuntu</List.Item>
+            <List.Item>REST API</List.Item>
+            <List.Item>GraphQL</List.Item>
+            <List.Item>Docker / Podman</List.Item>
+            <List.Item>Git</List.Item>
+            <List.Item>Kubernetes / Rancher</List.Item>
+            <List.Item>Electron</List.Item>
+            <List.Item>Tauri</List.Item>
+            <List.Item>React Native</List.Item>
+            <List.Item>Wordpress</List.Item>
+            <List.Item>Raspberry Pi</List.Item>
+          </List>
           <Heading mt='xl' id='software'>
             Some notable software
           </Heading>
-          <Table>
-            <thead>
-              <tr>
-                <th>Software</th>
-                <th>Level</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Microsoft Azure DevOps</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>JIRA / Confluence</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Visual Studio Code</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>SAP ERP</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Microsoft / Libre Office</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>GIMP</td>
-                <td></td>
-              </tr>
-            </tbody>
-          </Table>
-
-          <SimpleGrid cols={3} spacing='xl'>
-            {mockdata.map(({ icon, description, title }) => {
-              return (
-                <WorkCard
-                  key={title}
-                  icon={icon}
-                  title={title}
-                  description={description}
-                ></WorkCard>
-              )
-            })}
-          </SimpleGrid>
-          <Container size='lg' py='xl'>
-            <Group position='center'>
-              <Badge variant='filled' size='lg'>
-                Best company ever
-              </Badge>
-            </Group>
-            <Title order={2} className={classes.title} ta='center' mt='sm'>
-              Integrate effortlessly with any technology stack
-            </Title>
-            <Text
-              c='dimmed'
-              className={classes.description}
-              ta='center'
-              mt='md'
-            >
-              Every once in a while, you’ll see a Golbat that’s missing some
-              fangs. This happens when hunger drives it to try biting a
-              Steel-type Pokémon.
-            </Text>
-            <SimpleGrid
-              cols={3}
-              spacing='xl'
-              mt={50}
-              breakpoints={[{ maxWidth: 'md', cols: 1 }]}
-            >
-              {mockdata2.map(({ title, icon, description }) => {
-                return (
-                  <FeatureCard
-                    key={title}
-                    title={title}
-                    icon={icon}
-                    description={description}
-                  ></FeatureCard>
-                )
-              })}
-            </SimpleGrid>
-          </Container>
+          <List
+            spacing='xs'
+            size='sm'
+            center
+            icon={
+              // <ThemeIcon color='cyan' size={24} radius='xl'>
+              <Star size='1rem' color='cyan' />
+              // </ThemeIcon>
+            }
+          >
+            <List.Item>Microsoft Azure DevOps</List.Item>
+            <List.Item>JIRA / Confluence</List.Item>
+            <List.Item>Visual Studio Code</List.Item>
+            <List.Item>SAP ERP</List.Item>
+            <List.Item>Microsoft / Libre Office</List.Item>
+            <List.Item>GIMP</List.Item>
+          </List>
         </Pod>
       )}
     </Layout>
