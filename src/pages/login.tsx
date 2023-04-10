@@ -18,9 +18,9 @@ const Page: FC<NextPage> = () => {
     }
   })
 
-  if (status === 'authenticated') {
-    router.push('/')
-  }
+  // if (status === 'authenticated') {
+  //   router.push('/')
+  // }
 
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
