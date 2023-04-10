@@ -2,7 +2,7 @@ import { Text } from '@mantine/core'
 import { NextPage } from 'next'
 import { FC } from 'react'
 
-import { Layout, Pod } from '../../components'
+import { Layout, Pod } from '../components'
 
 const Page: FC<NextPage> = () => {
   return (

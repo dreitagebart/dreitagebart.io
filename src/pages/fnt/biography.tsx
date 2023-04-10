@@ -54,11 +54,11 @@ const Page: NextPage = () => {
           <Text mt='xl'>
             I would say of myself that I am self-taught. It was never the case
             that I had someone at my side who had explained everything to me
-            about how something works. I owe it to my passion and enthusiasm
-            that I am who I am today. I always wanted to know how apps worked,
-            what different technical terms meant or what was behind the
-            buzzwords. For me it means rest and relaxation to learn something
-            new and discover new ways to solve things in IT.
+            about how something works. I owe it to my will, passion and
+            enthusiasm that I am who I am today. I always wanted to know how
+            apps worked, what different technical terms meant or what was behind
+            the buzzwords. For me it means rest and relaxation to learn
+            something new and discover new ways to solve things in IT.
           </Text>
           <Text mt='xl'>
             At this point in time, I am very proud of what I know and it fills

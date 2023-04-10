@@ -20,19 +20,9 @@ import { TimelineItems } from '../../utils'
 
 const education: TimelineItems = [
   {
-    time: '2002',
-    title: 'School graduation middle school maturity',
-    description: 'Kopernikus Realschule Bad Mergentheim'
-  },
-  {
-    time: '2003',
-    title: 'School graduation Berufskolleg I (Business Assistant)',
-    description: 'KSM Bad Mergentheim'
-  },
-  {
-    time: '2004',
-    title: 'School graduation Berufskolleg II (Commercial Diploma)',
-    description: 'KSM Bad Mergentheim'
+    time: '2008 - 2011',
+    title: 'Apprenticeship as an information technology clerk (IT Kaufmann)',
+    description: 'ebm-papst GmbH & Co. KG'
   },
   {
     time: '2005 - 2007',
@@ -41,9 +31,19 @@ const education: TimelineItems = [
     description: 'Computation Systemhaus GmbH'
   },
   {
-    time: '2008 - 2011',
-    title: 'Apprenticeship as an information technology clerk (IT Kaufmann)',
-    description: 'ebm-papst GmbH & Co. KG'
+    time: '2004',
+    title: 'School graduation Berufskolleg II (Commercial Diploma)',
+    description: 'KSM Bad Mergentheim'
+  },
+  {
+    time: '2003',
+    title: 'School graduation Berufskolleg I (Business Assistant)',
+    description: 'KSM Bad Mergentheim'
+  },
+  {
+    time: '2002',
+    title: 'School graduation middle school maturity',
+    description: 'Kopernikus Realschule Bad Mergentheim'
   }
 ]
 

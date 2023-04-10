@@ -25,8 +25,9 @@ const users: Array<Record<'username' | 'password' | 'image', string>> =
 
 export const authOptions: AuthOptions = {
   pages: {
-    signIn: '/auth/login',
-    signOut: '/auth/logout'
+    error: '/error',
+    signIn: '/login',
+    signOut: '/logout'
   },
   callbacks: {
     session: async ({ session, user, token }) => {

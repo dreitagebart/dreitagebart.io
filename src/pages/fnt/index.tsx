@@ -16,7 +16,7 @@ const Page: NextPage = () => {
           </Center>
         ) : (
           <>
-            <PageTitle>Portfolio</PageTitle>
+            <PageTitle>{user?.name}</PageTitle>
             <SubTitle>
               I say a warm welcome to the employee of the company {user?.name}.
               <br />

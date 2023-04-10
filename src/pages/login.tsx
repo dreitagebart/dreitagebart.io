@@ -3,10 +3,10 @@ import { useForm } from '@mantine/form'
 import { NextPage } from 'next'
 import { signIn, SignInResponse, useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
-import { ChangeEvent, FC, useCallback, useEffect } from 'react'
+import { ChangeEvent, FC, useCallback } from 'react'
 import { Key, Login, User } from 'tabler-icons-react'
 
-import { Layout, PageTitle, Pod, SubTitle } from '../../components'
+import { Layout, PageTitle, Pod, SubTitle } from '../components'
 
 const Page: FC<NextPage> = () => {
   const router = useRouter()
@@ -17,6 +17,10 @@ const Page: FC<NextPage> = () => {
       password: ''
     }
   })
+
+  if (status === 'authenticated') {
+    router.push('/')
+  }
 
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
@@ -34,6 +38,7 @@ const Page: FC<NextPage> = () => {
         password,
         redirect: false
       }).then((response: SignInResponse | undefined) => {
+        debugger
         if (response && response.ok) {
           debugger
           router.push(`/${username}`)
@@ -42,12 +47,6 @@ const Page: FC<NextPage> = () => {
     },
     [router]
   )
-
-  useEffect(() => {
-    if (status === 'authenticated') {
-      router.push('/')
-    }
-  }, [status, router])
 
   return (
     <Layout title='Login'>
@@ -59,7 +58,6 @@ const Page: FC<NextPage> = () => {
         <form onSubmit={onSubmit(handleSubmit)}>
           <Stack
             spacing='xl'
-            // align='flex-start'
             maw={420}
             p='xl'
             sx={(theme) => ({

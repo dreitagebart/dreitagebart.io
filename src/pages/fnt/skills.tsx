@@ -95,7 +95,8 @@ const useStyles = createStyles((theme) => ({
 const Page: NextPage = () => {
   const { loading } = useRestrictedArea('fnt')
   const { classes } = useStyles()
-
+  // leitsatz für language / frameworks / skills
+  // aufzählung Listelement
   return (
     <Layout title='Skills'>
       {loading ? (
@@ -104,10 +105,11 @@ const Page: NextPage = () => {
         </Center>
       ) : (
         <Pod>
-          <PageTitle>Languages</PageTitle>
+          <PageTitle>Skills</PageTitle>
           <SubTitle>
-            Certainly, it is difficult to divide the wealth of experience into
-            levels. However, this page should give you a rough overview of it.
+            Surely it is difficult to divide the wealth of experience into
+            levels, nevertheless this page should give you a rough overview of
+            my skills and knowledge.
           </SubTitle>
           <Heading id='languages'>
             Languages / Frameworks / Libraries / Technologies
