@@ -226,6 +226,38 @@ const experienceWittenstein: TimelineItems = [
     )
   },
   {
+    time: '2019',
+    title: 'WITTENSTEIN Service Portal',
+    description: (
+      <>
+        Development of a central data distribution program (alias &laquo;flux
+        compensator&raquo;) that fills a data lake in the Azure Cloud with
+        product and manufacturing data of WITTENSTEIN products.
+      </>
+    )
+  },
+  {
+    time: '2018',
+    title: 'Custom Label Designer (pilot project)',
+    description: (
+      <>
+        Development of a custom label designer (alias &laquo;WILDCAT&raquo;) -
+        after creation of a custom label, this label will be converted into a
+        special format for TRUMPF laser machines.
+      </>
+    )
+  },
+  {
+    time: '2018',
+    title: 'bookr Time Tracking Tool',
+    description: (
+      <>
+        Desktop app with which WITTENSTEIN employees can record their work on
+        projects and internal orders.
+      </>
+    )
+  },
+  {
     time: '2018',
     title: 'SAP Development Guidelines',
     description: (
