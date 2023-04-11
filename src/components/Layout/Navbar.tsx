@@ -24,6 +24,7 @@ import {
   Logout,
   Stack2
 } from 'tabler-icons-react'
+import { AuthMenu } from './AuthMenu'
 
 interface Props {}
 
@@ -58,7 +59,6 @@ export const Navbar: FC<Props> = () => {
   })
   const [opened, { toggle }] = useDisclosure(false)
   const label = opened ? 'Close navigation' : 'Open navigation'
-  const { data: session, status } = useSession()
 
   return (
     <Box component='nav'>
@@ -75,106 +75,54 @@ export const Navbar: FC<Props> = () => {
               </NavbarItem>
             )
           })}
-          {status === 'authenticated' ? (
-            <Menu
-              trigger='click'
-              transitionProps={{ transition: 'scale-y' }}
-              position='bottom-end'
-              width={240}
-              withinPortal
-            >
-              <Menu.Target>
-                <Avatar
-                  sx={{ cursor: 'pointer' }}
-                  size='md'
-                  src={`/companies/${session.user?.image}`}
-                ></Avatar>
-              </Menu.Target>
-              <Menu.Dropdown>
-                <Menu.Label>
-                  logged in as <b>{session.user?.name}</b>
-                </Menu.Label>
-                <Menu.Item icon={<ChartTreemap></ChartTreemap>}>
-                  <UnstyledButton
-                    component={Link}
-                    href={`/${session.user?.username}/biography`}
-                  >
-                    <Text>Biography</Text>
-                  </UnstyledButton>
-                </Menu.Item>
-                <Menu.Item icon={<Album></Album>}>
-                  <UnstyledButton
-                    component={Link}
-                    href={`/${session.user?.username}/resume`}
-                  >
-                    <Text>Resume</Text>
-                  </UnstyledButton>
-                </Menu.Item>
-                <Menu.Item icon={<ActivityHeartbeat></ActivityHeartbeat>}>
-                  <UnstyledButton
-                    component={Link}
-                    href={`/${session.user?.username}/experience`}
-                  >
-                    <Text>Experience</Text>
-                  </UnstyledButton>
-                </Menu.Item>
-                <Menu.Item icon={<Stack2></Stack2>}>
-                  <UnstyledButton
-                    component={Link}
-                    href={`/${session.user?.username}/skills`}
-                  >
-                    <Text>Skills</Text>
-                  </UnstyledButton>
-                </Menu.Item>
-                <Menu.Divider></Menu.Divider>
-                <Menu.Item icon={<Logout></Logout>} onClick={() => signOut()}>
-                  Logout
-                </Menu.Item>
-              </Menu.Dropdown>
-            </Menu>
-          ) : null}
+          <AuthMenu></AuthMenu>
         </Group>
       ) : (
-        <Menu
-          withinPortal
-          width='100vw'
-          onClose={toggle}
-          position='bottom'
-          styles={{
-            dropdown: {
-              backgroundColor:
-                theme.colorScheme === 'light'
-                  ? theme.colors.spin[2]
-                  : theme.colors.spin[8],
-              boxShadow: 'none',
-              marginTop: 8,
-              paddingBottom: 20,
-              border: 'none'
-            },
-            item: {
-              paddingLeft: theme.spacing.xl,
-              paddingTop: 12,
-              paddingBottom: 12,
-              fontSize: '1.2rem',
-              background: 'transparent'
-            }
-          }}
-        >
-          <Menu.Target>
-            <Burger opened={opened} onClick={toggle} aria-label={label} />
-          </Menu.Target>
-          <Menu.Dropdown>
-            {items.map(({ label, href }) => {
-              return (
-                <Menu.Item key={label}>
-                  <Link href={href}>
-                    <UnstyledButton>{label}</UnstyledButton>
-                  </Link>
-                </Menu.Item>
-              )
-            })}
-          </Menu.Dropdown>
-        </Menu>
+        <>
+          <Menu
+            withinPortal
+            width='100vw'
+            onClose={toggle}
+            position='bottom'
+            styles={{
+              dropdown: {
+                backgroundColor:
+                  theme.colorScheme === 'light'
+                    ? theme.colors.spin[2]
+                    : theme.colors.spin[8],
+                boxShadow: 'none',
+                marginTop: 8,
+                paddingBottom: 20,
+                border: 'none'
+              },
+              item: {
+                paddingLeft: theme.spacing.xl,
+                paddingTop: 12,
+                paddingBottom: 12,
+                fontSize: '1.2rem',
+                background: 'transparent'
+              }
+            }}
+          >
+            <Menu.Target>
+              <Burger opened={opened} onClick={toggle} aria-label={label} />
+            </Menu.Target>
+            <Menu.Dropdown>
+              {items.map(({ label, href }) => {
+                return (
+                  <Menu.Item key={label}>
+                    <Link href={href}>
+                      <UnstyledButton>{label}</UnstyledButton>
+                    </Link>
+                  </Menu.Item>
+                )
+              })}
+              <Box sx={{ padding: '12px 12px 12px 24px' }}>
+                <AuthMenu></AuthMenu>
+              </Box>
+            </Menu.Dropdown>
+          </Menu>
+        </>
       )}
     </Box>
   )

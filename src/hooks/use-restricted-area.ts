@@ -7,7 +7,6 @@ export const useRestrictedArea = (username: string) => {
   const { data: session, status } = useSession({ required: true })
 
   useEffect(() => {
-    debugger
     if (session && session.user && session.user.username !== username) {
       router.push('/login')
     }
