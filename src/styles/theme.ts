@@ -8,6 +8,22 @@ export const handwritingFont = Caveat({ subsets: ['latin'] })
 
 export const theme: MantineThemeOverride = {
   globalStyles: (theme) => ({
+    '@media print': {
+      '@page': {
+        size: 'A4 portrait',
+        margin: '20mm'
+      },
+      h1: {
+        display: 'none',
+        paddingTop: theme.spacing.lg
+      },
+      header: {
+        display: 'none'
+      },
+      footer: {
+        display: 'none'
+      }
+    },
     '*': {
       scrollbarWidth: 'auto',
       scrollbarColor:
@@ -28,7 +44,6 @@ export const theme: MantineThemeOverride = {
           ? theme.colors.spin[6]
           : theme.colors.spin[7],
       borderRadius: 0
-      // border: '3px solid #ffffff'
     },
     a: {
       color: 'inherit',

@@ -6,11 +6,10 @@ import {
   Group,
   Stack,
   Text,
-  UnstyledButton,
   Tooltip,
   rem
 } from '@mantine/core'
-import { BrandGithub, BrandLinkedin, BrandTwitter } from 'tabler-icons-react'
+import { BrandGithub, BrandTwitter } from 'tabler-icons-react'
 import { FC, ReactNode } from 'react'
 
 import { Pod } from './Pod'
@@ -89,11 +88,6 @@ const socialLinks: Array<{
     label: 'Twitter',
     href: 'https://twitter.com/dreitagebart',
     icon: <BrandTwitter size={32}></BrandTwitter>
-  },
-  {
-    label: 'Linked in',
-    href: 'https://linkedin.com',
-    icon: <BrandLinkedin size={32}></BrandLinkedin>
   },
   {
     label: 'Github',

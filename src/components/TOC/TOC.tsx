@@ -95,7 +95,14 @@ export const TOC: FC<Props> = ({ links, offset }) => {
         top: 20
       }}
     >
-      <Stack sx={{ width: 300 }}>
+      <Stack
+        sx={{
+          '@media print': {
+            display: 'none'
+          },
+          width: 300
+        }}
+      >
         <Group mb='md'>
           <ListSearch size={20}></ListSearch>
           <Text>Table of contents</Text>

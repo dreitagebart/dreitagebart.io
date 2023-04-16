@@ -1,6 +1,14 @@
 import Image from 'next/image'
-import { Timeline } from '@mantine/core'
-import { Center, Grid, Group, Loader, Stack, Text } from '@mantine/core'
+import { Timeline, rem } from '@mantine/core'
+import {
+  Center,
+  Grid,
+  Group,
+  Blockquote,
+  Loader,
+  Stack,
+  Text
+} from '@mantine/core'
 import { NextPage } from 'next'
 import {
   Ballon,
@@ -14,7 +22,7 @@ import {
 } from 'tabler-icons-react'
 
 import profile from '../../assets/images/lowkey_color.jpg'
-import { Layout, Pod } from '../../components'
+import { Layout, PageBreak, Pod } from '../../components'
 import { useRestrictedArea } from '../../hooks'
 import { TimelineItems } from '../../utils'
 
@@ -102,7 +110,15 @@ const Page: NextPage = () => {
                   <Text>Software Developer</Text>
                 </Stack>
                 <Stack>
-                  <Text color='dimmed'>
+                  <Text
+                    color='dimmed'
+                    sx={{
+                      '@media print': {
+                        marginTop: rem(40),
+                        textAlign: 'center'
+                      }
+                    }}
+                  >
                     To utilize my skills and expertise in software development,
                     to contribute positively to a dynamic organization that
                     values creativity, collaboration, and innovation, while
@@ -110,6 +126,7 @@ const Page: NextPage = () => {
                     professional growth and personal fulfillment.
                   </Text>
                 </Stack>
+                <PageBreak></PageBreak>
                 <Stack mt='xl' spacing='sm'>
                   <Group noWrap align='flex-start'>
                     <Cake></Cake>
@@ -172,6 +189,7 @@ const Page: NextPage = () => {
                   })}
                 </Timeline>
               </Stack>
+              <PageBreak></PageBreak>
               <Stack mt='xl'>
                 <Group spacing='sm'>
                   <School size='36'></School>
