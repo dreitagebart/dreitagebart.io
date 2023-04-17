@@ -46,8 +46,19 @@ export const theme: MantineThemeOverride = {
       borderRadius: 0
     },
     a: {
-      color: 'inherit',
-      textDecoration: 'none'
+      transition: 'color 300ms ease-in-out',
+      color:
+        theme.colorScheme === 'light'
+          ? theme.colors.cyan[8]
+          : theme.colors.cyan[5],
+      fontWeight: 700,
+      textDecoration: 'none',
+      '&:hover': {
+        color:
+          theme.colorScheme === 'light'
+            ? theme.colors.cyan[6]
+            : theme.colors.cyan[7]
+      }
     },
     body: {
       backgroundColor:
