@@ -1,22 +1,19 @@
-import { createStyles, Group, rem, Table, Title } from '@mantine/core'
-import { Text } from '@mantine/core'
+import { createStyles, rem, Table } from '@mantine/core'
 import { Badge } from '@mantine/core'
-import { Center, Container, Loader, SimpleGrid } from '@mantine/core'
+import { Center, Loader } from '@mantine/core'
 import { NextPage } from 'next'
-import { Cookie, Gauge, Star, User } from 'tabler-icons-react'
+import { Heart, Star } from 'tabler-icons-react'
+import { List } from '@mantine/core'
 
 import {
-  FeatureCard,
   Heading,
   Layout,
+  PageBreak,
   PageTitle,
   Pod,
-  SubTitle,
-  WorkCard
+  SubTitle
 } from '../../components'
 import { useRestrictedArea } from '../../hooks'
-import { List } from '@mantine/core'
-import { ThemeIcon } from '@mantine/core'
 
 const useStyles = createStyles((theme) => ({
   title: {
@@ -48,8 +45,7 @@ const useStyles = createStyles((theme) => ({
 const Page: NextPage = () => {
   const { loading } = useRestrictedArea('fnt')
   const { classes } = useStyles()
-  // leitsatz für language / frameworks / skills
-  // aufzählung Listelement
+
   return (
     <Layout title='Skills'>
       {loading ? (
@@ -156,6 +152,7 @@ const Page: NextPage = () => {
               </tr>
             </tbody>
           </Table>
+          <PageBreak></PageBreak>
           <Heading mt='xl' id='software'>
             Frameworks / Libraries / Technologies
           </Heading>
@@ -167,16 +164,11 @@ const Page: NextPage = () => {
             spacing='xs'
             size='sm'
             center
-            icon={
-              // <ThemeIcon color='cyan' size={24} radius='xl'>
-              <Star size='1rem' color='cyan' />
-              // </ThemeIcon>
-            }
+            icon={<Star size='1rem' color='cyan' />}
           >
             <List.Item>React</List.Item>
             <List.Item>NextJS / SSR / SSG</List.Item>
-            <List.Item>Docker</List.Item>
-            <List.Item>Linux / Fedora / Ubuntu</List.Item>
+            <List.Item>GNU Linux / Fedora / Ubuntu</List.Item>
             <List.Item>REST API</List.Item>
             <List.Item>GraphQL</List.Item>
             <List.Item>Docker / Podman</List.Item>
@@ -188,25 +180,50 @@ const Page: NextPage = () => {
             <List.Item>Wordpress</List.Item>
             <List.Item>Raspberry Pi</List.Item>
           </List>
+          <PageBreak></PageBreak>
           <Heading mt='xl' id='software'>
-            Some notable software
+            Some notable software and platforms
           </Heading>
           <List
             spacing='xs'
             size='sm'
             center
-            icon={
-              // <ThemeIcon color='cyan' size={24} radius='xl'>
-              <Star size='1rem' color='cyan' />
-              // </ThemeIcon>
-            }
+            icon={<Star size='1rem' color='cyan' />}
           >
             <List.Item>Microsoft Azure DevOps</List.Item>
             <List.Item>JIRA / Confluence</List.Item>
+            <List.Item>Gitlab</List.Item>
+            <List.Item>Vercel</List.Item>
+            <List.Item>Github</List.Item>
             <List.Item>Visual Studio Code</List.Item>
             <List.Item>SAP ERP</List.Item>
-            <List.Item>Microsoft / Libre Office</List.Item>
-            <List.Item>GIMP</List.Item>
+            <List.Item>Microsoft 365 / Libre Office</List.Item>
+          </List>
+          <Heading mt='xl' id='software'>
+            Things I like
+          </Heading>
+          <List
+            spacing='xs'
+            size='sm'
+            center
+            icon={<Heart size='1rem' color='cyan' />}
+          >
+            <List.Item>I am passionate about software development</List.Item>
+            <List.Item>
+              Learning new things or technologies and listening to tech podcasts
+            </List.Item>
+            <List.Item>
+              Spending time with my girlfriend / go for a walk / discussions
+              with her
+            </List.Item>
+            <List.Item>
+              I do some sports, e. g. swimming, cardio and weight training
+            </List.Item>
+            <List.Item>I love to cook and experiment with new dishes</List.Item>
+            <List.Item>
+              Listen and make music (once I was a drummer in a thrash metal band
+              / I play tenor horn in a brass band more than 25 years)
+            </List.Item>
           </List>
         </Pod>
       )}

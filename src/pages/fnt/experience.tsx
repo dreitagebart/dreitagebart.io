@@ -16,6 +16,7 @@ import { LayersLinked } from 'tabler-icons-react'
 import {
   Heading,
   Layout,
+  PageBreak,
   PageTitle,
   Pod,
   Section,
@@ -93,6 +94,11 @@ const experienceEbmPapst: TimelineItems = [
         Asian region in cooperation with IT ebm-papst Mulfingen.
       </>
     )
+  },
+  {
+    time: '',
+    title: 'break',
+    description: ''
   },
   {
     time: 'since 2015',
@@ -206,6 +212,11 @@ const experienceWittenstein: TimelineItems = [
     )
   },
   {
+    time: '',
+    title: 'break',
+    description: ''
+  },
+  {
     time: 'since 2020',
     title: 'Material Information System (MIS)',
     description: (
@@ -270,6 +281,11 @@ const experienceWittenstein: TimelineItems = [
     )
   },
   {
+    time: '',
+    title: 'break',
+    description: ''
+  },
+  {
     time: '2018',
     title: 'WITTENSTEIN App Framework',
     description: (
@@ -306,14 +322,27 @@ const Page: NextPage = () => {
           <Flex gap='xl' direction='row'>
             <Stack sx={{ width: '100%' }}>
               <PageTitle>Experience</PageTitle>
-              <SubTitle>
+              <SubTitle
+                sx={{
+                  '@media print': {
+                    display: 'none'
+                  }
+                }}
+              >
                 During my professional activity I could collect different
                 experiences. On this page I would like to show you my wealth of
                 experience and highlights.
               </SubTitle>
               <Section id='sec-working-experience'>
                 <Heading id='wittenstein'>
-                  <Group spacing='sm'>
+                  <Group
+                    spacing='sm'
+                    sx={{
+                      '@media print': {
+                        display: 'none'
+                      }
+                    }}
+                  >
                     <LayersLinked size={36}></LayersLinked>
                     <Text fz='lg' fw={700}>
                       Experience / Highlights
@@ -336,10 +365,15 @@ const Page: NextPage = () => {
                   >
                     {experienceWittenstein.map(
                       ({ time, title, description }, index) => {
+                        if (title === 'break') {
+                          return <PageBreak key={index}></PageBreak>
+                        }
+
                         return (
                           <Timeline.Item
                             key={index}
                             title={time}
+                            radius='md'
                             bulletSize={48}
                             bullet={
                               <Avatar
@@ -362,6 +396,7 @@ const Page: NextPage = () => {
                     )}
                   </Timeline>
                 </Section>
+                <PageBreak></PageBreak>
                 <Section id='sec-ebmpapst' mt={rem(40)}>
                   <Title order={4}>ebm-papst GmbH & Co. KG</Title>
                   <Timeline
@@ -373,10 +408,15 @@ const Page: NextPage = () => {
                   >
                     {experienceEbmPapst.map(
                       ({ time, title, description }, index) => {
+                        if (title === 'break') {
+                          return <PageBreak key={index}></PageBreak>
+                        }
+
                         return (
                           <Timeline.Item
                             key={index}
                             title={time}
+                            radius='md'
                             bulletSize={48}
                             bullet={
                               <Avatar
@@ -414,14 +454,15 @@ const Page: NextPage = () => {
                           <Timeline.Item
                             key={index}
                             title={time}
+                            radius='md'
                             bulletSize={48}
                             bullet={
-                              <Avatar radius='md' bg='#ffffff' size={48}>
+                              <Avatar radius='md' bg='#ffffff' size={46}>
                                 <Group spacing={0}>
-                                  <Text span size='xs' color={'red'}>
+                                  <Text span fz={11} color={'red'}>
                                     com
                                   </Text>
-                                  <Text span size='xs' color='dark'>
+                                  <Text span fz={11} color='dark'>
                                     putation
                                   </Text>
                                 </Group>

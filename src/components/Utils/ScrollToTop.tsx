@@ -34,6 +34,9 @@ export const ScrollToTop: FC<Props> = () => {
         right={40}
         bottom={40}
         sx={{
+          '@media print': {
+            display: 'none'
+          },
           zIndex: 1000,
           transition: 'all 500ms ease-out',
           visibility: visible ? 'visible' : 'hidden',

@@ -14,8 +14,13 @@ export const Header: FC<Props> = ({ ...props }) => {
     theme.colorScheme === 'light' ? theme.colors.spin[2] : theme.colors.spin[8]
 
   return (
-    <>
-      <Box component='header' {...props} sx={{ backgroundColor: color }}>
+    <Box component='header'>
+      <Box
+        {...props}
+        sx={{
+          backgroundColor: color
+        }}
+      >
         <Pod>
           <Group position='apart'>
             <Logo></Logo>
@@ -24,6 +29,6 @@ export const Header: FC<Props> = ({ ...props }) => {
         </Pod>
       </Box>
       <Wave color={color}></Wave>
-    </>
+    </Box>
   )
 }

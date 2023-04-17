@@ -8,7 +8,7 @@ const Page: NextPage = () => {
   const { user, loading } = useRestrictedArea('fnt')
 
   return (
-    <Layout title='Exclusive content'>
+    <Layout title='Welcome'>
       <Pod>
         {loading ? (
           <Center px='xl'>

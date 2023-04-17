@@ -11,10 +11,10 @@ type Data = {
 const templatePath = join(process.cwd(), 'src/assets/mjml')
 
 const mailTemplate = fs.readFileSync(join(templatePath, 'mail.mjml'), 'utf8')
-const confirmationTemplate = fs.readFileSync(
-  join(templatePath, 'confirmation.mjml'),
-  'utf8'
-)
+// const confirmationTemplate = fs.readFileSync(
+//   join(templatePath, 'confirmation.mjml'),
+//   'utf8'
+// )
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   const transport = mailer.createTransport({
@@ -32,6 +32,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     .replace('${name}', name)
     .replace('${email}', email)
     .replace('${message}', message)
+    .replace('${subject}', subject)
 
   const mail = await transport.sendMail({
     from: 'stefan.buechold@gmail.com',

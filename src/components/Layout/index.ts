@@ -1,3 +1,5 @@
 export * from './Layout'
 export * from './Pod'
 export * from './Section'
+export * from './PageBreak'
+export * from './Chapter'

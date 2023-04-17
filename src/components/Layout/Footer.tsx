@@ -6,11 +6,16 @@ import {
   Group,
   Stack,
   Text,
-  UnstyledButton,
   Tooltip,
-  rem
+  rem,
+  ActionIcon
 } from '@mantine/core'
-import { BrandGithub, BrandLinkedin, BrandTwitter } from 'tabler-icons-react'
+import {
+  BrandGithub,
+  BrandPaypal,
+  BrandTelegram,
+  BrandTwitter
+} from 'tabler-icons-react'
 import { FC, ReactNode } from 'react'
 
 import { Pod } from './Pod'
@@ -86,19 +91,24 @@ const socialLinks: Array<{
   href: string
 }> = [
   {
+    label: 'Github',
+    href: 'https://github.com/dreitagebart',
+    icon: <BrandGithub size={32}></BrandGithub>
+  },
+  {
     label: 'Twitter',
     href: 'https://twitter.com/dreitagebart',
     icon: <BrandTwitter size={32}></BrandTwitter>
   },
   {
-    label: 'Linked in',
-    href: 'https://linkedin.com',
-    icon: <BrandLinkedin size={32}></BrandLinkedin>
+    label: 'Telegram',
+    href: 'https://t.me/dreitagebart',
+    icon: <BrandTelegram size={32}></BrandTelegram>
   },
   {
-    label: 'Github',
-    href: 'https://github.com/dreitagebart',
-    icon: <BrandGithub size={32}></BrandGithub>
+    label: 'Paypal',
+    href: 'https://paypal.me/sbuechold',
+    icon: <BrandPaypal size={32}></BrandPaypal>
   }
 ]
 
@@ -114,14 +124,15 @@ export const Footer: FC<Props> = ({ ...props }) => {
             {socialLinks.map(({ label, href, icon }) => {
               return (
                 <Tooltip label={label} key={label}>
-                  <Link
+                  <ActionIcon
+                    component={Link}
                     className={classes.social}
                     href={href}
                     rel='noreferrer'
                     target='_blank'
                   >
                     {icon}
-                  </Link>
+                  </ActionIcon>
                 </Tooltip>
               )
             })}

@@ -1,0 +1,4 @@
+- QR Code generieren mit verlinkung auf dreitagebart.io/fnt
+- Anschreiben Vorlage erfassen
+- Bezugnehmen auf Peer
+- peer.dierolf@fntsoftware.com
