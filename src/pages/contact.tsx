@@ -9,27 +9,34 @@ import {
   Textarea,
   TextInput
 } from '@mantine/core'
-import { useForm } from '@mantine/form'
+import { useForm, isNotEmpty, isEmail } from '@mantine/form'
 import { NextPage } from 'next'
 import { ChangeEvent, useCallback } from 'react'
 import { Send } from 'tabler-icons-react'
+import { useMediaQuery } from '@mantine/hooks'
 
 import profile from '../assets/images/annoyed.png'
 import { Layout, PageTitle, Pod, SubTitle } from '../components'
-import { useMediaQuery } from '@mantine/hooks'
 
 const Page: NextPage = () => {
   const largeScreen = useMediaQuery('(min-width: 48em)', true, {
     getInitialValueInEffect: false
   })
-  const { values, setFieldValue, onSubmit } = useForm({
+  const { values, setFieldValue, onSubmit, errors } = useForm({
     initialValues: {
+      loading: false,
       sent: false,
       success: false,
       name: '',
       email: '',
       subject: '',
       message: ''
+    },
+    validate: {
+      name: isNotEmpty('What should I call you?'),
+      email: isEmail('This is not a valid email'),
+      subject: isNotEmpty('Tell me what this is about?'),
+      message: isNotEmpty("Don't you have anything to tell me?")
     }
   })
 
@@ -42,6 +49,8 @@ const Page: NextPage = () => {
 
   const handleSubmit = useCallback(
     (formValues: typeof values) => {
+      setFieldValue('loading', true)
+
       const { name, email, subject, message } = formValues
 
       Axios.post('/api/contact', {
@@ -52,6 +61,7 @@ const Page: NextPage = () => {
       })
         .then((response) => {
           setFieldValue('sent', true)
+          setFieldValue('loading', false)
 
           if (response.data.success) {
             return setFieldValue('success', true)
@@ -62,6 +72,7 @@ const Page: NextPage = () => {
         .catch((error) => {
           setFieldValue('sent', true)
           setFieldValue('success', false)
+          setFieldValue('loading', false)
           console.error(error)
         })
     },
@@ -99,6 +110,7 @@ const Page: NextPage = () => {
                   </Notification>
                 ))}
               <TextInput
+                error={errors.name}
                 size='lg'
                 placeholder='Your name'
                 name='name'
@@ -106,6 +118,7 @@ const Page: NextPage = () => {
                 value={values.name}
               ></TextInput>
               <TextInput
+                error={errors.email}
                 size='lg'
                 placeholder='you@mail.me'
                 name='email'
@@ -113,6 +126,7 @@ const Page: NextPage = () => {
                 value={values.email}
               ></TextInput>
               <TextInput
+                error={errors.subject}
                 size='lg'
                 placeholder='Your subject'
                 name='subject'
@@ -120,13 +134,19 @@ const Page: NextPage = () => {
                 value={values.subject}
               ></TextInput>
               <Textarea
+                error={errors.message}
                 size='lg'
                 placeholder='Your message...'
                 name='message'
                 onChange={handleChange}
                 value={values.message}
               ></Textarea>
-              <Button type='submit' size='lg' leftIcon={<Send></Send>}>
+              <Button
+                type='submit'
+                size='lg'
+                leftIcon={<Send></Send>}
+                loading={values.loading}
+              >
                 Send
               </Button>
             </Stack>

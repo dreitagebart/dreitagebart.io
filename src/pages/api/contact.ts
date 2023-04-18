@@ -28,7 +28,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
 
   const { name, email, subject, message } = req.body
 
-  mailTemplate
+  const mailText = mailTemplate
     .replace('${name}', name)
     .replace('${email}', email)
     .replace('${message}', message)
@@ -37,7 +37,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   const mail = await transport.sendMail({
     from: 'stefan.buechold@gmail.com',
     to: 'stefan.buechold@gmail.com',
-    html: mjml(mailTemplate).html
+    html: mjml(mailText).html
   })
 
   if (!mail) {
