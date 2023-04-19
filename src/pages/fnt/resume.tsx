@@ -119,9 +119,9 @@ const Page: NextPage = () => {
                       }
                     }}
                   >
-                    To utilize my skills and expertise in software development,
-                    to contribute positively to a dynamic organization that
-                    values creativity, collaboration, and innovation, while
+                    My mission - utilize my skills and expertise in software
+                    development, contribute positively to a dynamic organization
+                    that values creativity, collaboration, and innovation, while
                     continually expanding my knowledge and skills to achieve
                     professional growth and personal fulfillment.
                   </Text>
