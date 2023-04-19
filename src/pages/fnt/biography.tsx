@@ -17,8 +17,8 @@ const Page: NextPage = () => {
         <Pod>
           <PageTitle>Biography</PageTitle>
           <Text>
-            Back in the 90s when I was 11 years old, I created my first website.
-            at a time when Google was still largely a foreign word. I typed
+            Back in the 90s when I was 11 years old, I created my first website
+            - at a time when Google was still largely a foreign word. I typed
             letter by letter, HTML tag by HTML tag into an editor (I think it
             was called Phase 5). CSS support was still in its infancy.
             JavaScript wasn&apos;t as far along and even powerful back then as
