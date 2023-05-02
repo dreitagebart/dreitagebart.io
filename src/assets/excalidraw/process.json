@@ -1,0 +1,122 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "http://localhost:3000",
+  "elements": [
+    {
+      "id": "_zcwygaOJpbLyYWu_A6qz",
+      "type": "text",
+      "x": 482,
+      "y": 235.09375,
+      "width": 384.9796142578125,
+      "height": 50,
+      "angle": 0,
+      "strokeColor": "#000000",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "roundness": null,
+      "seed": 208717285,
+      "version": 50,
+      "versionNonce": 530720235,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1682939743389,
+      "link": null,
+      "locked": false,
+      "text": "Hallo Welt\nIch möchte diesen Teppich nicht kaufen",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "baseline": 43,
+      "containerId": null,
+      "originalText": "Hallo Welt\nIch möchte diesen Teppich nicht kaufen",
+      "lineHeight": 1.25
+    },
+    {
+      "id": "uS-OHJP-lDxpnAfCdf5Up",
+      "type": "arrow",
+      "x": 891,
+      "y": 267.09375,
+      "width": 216,
+      "height": 149,
+      "angle": 0,
+      "strokeColor": "#000000",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "roundness": {
+        "type": 2
+      },
+      "seed": 1064026693,
+      "version": 114,
+      "versionNonce": 1592278693,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1682939756921,
+      "link": null,
+      "locked": false,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          46,
+          -149
+        ],
+        [
+          216,
+          -81
+        ]
+      ],
+      "lastCommittedPoint": null,
+      "startBinding": null,
+      "endBinding": null,
+      "startArrowhead": null,
+      "endArrowhead": "arrow"
+    },
+    {
+      "id": "t4n9sUkmRcgZtMd3dkJet",
+      "type": "diamond",
+      "x": 562,
+      "y": 134.09375,
+      "width": 250,
+      "height": 298,
+      "angle": 0,
+      "strokeColor": "#000000",
+      "backgroundColor": "#e64980",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "roundness": {
+        "type": 2
+      },
+      "seed": 297544235,
+      "version": 48,
+      "versionNonce": 1608064933,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1682939771052,
+      "link": null,
+      "locked": false
+    }
+  ],
+  "appState": {
+    "gridSize": null,
+    "viewBackgroundColor": "#ffffff"
+  },
+  "files": {}
+}
