@@ -6,6 +6,7 @@ import { FC } from 'react'
 import {
   ActivityHeartbeat,
   Album,
+  ArrowAutofitRight,
   ChartTreemap,
   Logout,
   Stack2
@@ -65,6 +66,14 @@ export const AuthMenu: FC<Props> = () => {
             href={`/${session.user?.username}/skills`}
           >
             <Text>Skills</Text>
+          </UnstyledButton>
+        </Menu.Item>
+        <Menu.Item icon={<ArrowAutofitRight></ArrowAutofitRight>}>
+          <UnstyledButton
+            component={Link}
+            href={`/${session.user?.username}/process`}
+          >
+            <Text>Process</Text>
           </UnstyledButton>
         </Menu.Item>
         <Menu.Divider></Menu.Divider>
