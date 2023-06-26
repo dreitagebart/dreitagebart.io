@@ -28,9 +28,11 @@ export const AuthMenu: FC<Props> = () => {
       <Menu.Target>
         <Avatar
           sx={{ cursor: 'pointer' }}
-          size='md'
-          src={`/companies/${session.user?.image}`}
-        ></Avatar>
+          size='lg'
+        
+        >
+          <Text fz={14}>{session.user.username}</Text>
+        </Avatar>
       </Menu.Target>
       <Menu.Dropdown>
         <Menu.Label>

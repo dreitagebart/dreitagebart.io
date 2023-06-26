@@ -309,7 +309,7 @@ const experienceWittenstein: TimelineItems = [
 ]
 
 const Page: NextPage = () => {
-  const { loading } = useRestrictedArea('fnt')
+  const { loading } = useRestrictedArea('career')
 
   return (
     <Layout title='Experience'>

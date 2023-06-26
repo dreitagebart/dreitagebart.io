@@ -1,29 +1,12 @@
 import Link from 'next/link'
-import {
-  Avatar,
-  Burger,
-  Menu,
-  Text,
-  UnstyledButton,
-  useMantineTheme
-} from '@mantine/core'
+import { Burger, Menu, UnstyledButton, useMantineTheme } from '@mantine/core'
 import { Box, Group } from '@mantine/core'
 import { useDisclosure, useMediaQuery } from '@mantine/hooks'
-import { signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { FC } from 'react'
 
 import { NavbarItems } from '../../utils'
 import { NavbarItem } from './NavbarItem'
-import {
-  ActivityHeartbeat,
-  Album,
-  Briefcase,
-  ChartTreemap,
-  LiveView,
-  Logout,
-  Stack2
-} from 'tabler-icons-react'
 import { AuthMenu } from './AuthMenu'
 
 interface Props {}

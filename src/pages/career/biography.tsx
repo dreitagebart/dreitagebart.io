@@ -5,7 +5,7 @@ import { Layout, PageTitle, Pod } from '../../components'
 import { useRestrictedArea } from '../../hooks'
 
 const Page: NextPage = () => {
-  const { loading } = useRestrictedArea('fnt')
+  const { loading } = useRestrictedArea('career')
 
   return (
     <Layout title='Biography'>

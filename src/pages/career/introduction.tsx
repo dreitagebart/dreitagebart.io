@@ -1,13 +1,13 @@
 import { NextPage } from 'next'
 import Image from 'next/image'
 
-import qrcode from '../../assets/images/qrcode_fnt.png'
+import qrcode from '../../assets/images/qrcode.png'
 import { PageBreak, SubTitle } from '../../components'
 import { useRestrictedArea } from '../../hooks'
-import { Alert, Grid, Group, Stack, Text } from '@mantine/core'
+import { Alert, Group, Stack, Text } from '@mantine/core'
 
 const Page: NextPage = () => {
-  useRestrictedArea('fnt')
+  useRestrictedArea('career')
 
   return (
     <>
@@ -22,8 +22,8 @@ const Page: NextPage = () => {
           This is the printable &quot;hand-out version&quot;, but you can check
           the online version at{' '}
           <b>
-            <a href='https://dreitagebart.io/fnt'>
-              https://dreitagebart.io/fnt
+            <a href='https://dreitagebart.io/career'>
+              https://dreitagebart.io/career
             </a>
           </b>{' '}
           or by scanning the QR code below.
@@ -31,7 +31,7 @@ const Page: NextPage = () => {
         <Image
           style={{ margin: 20, borderRadius: 8, width: 210, height: 'auto' }}
           src={qrcode}
-          alt='FNT QR Code'
+          alt='QR Code'
         ></Image>
         <SubTitle mt='sm'>
           <Text>You can logon with following credentials:</Text>
@@ -41,7 +41,7 @@ const Page: NextPage = () => {
               <Text weight={500}>Password:</Text>
             </Stack>
             <Stack spacing={0}>
-              <Text>fnt</Text>
+              <Text>career</Text>
               <Text>ktbAUk</Text>
             </Stack>
           </Group>

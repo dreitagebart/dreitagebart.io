@@ -15,7 +15,7 @@ import { Chapter, PageBreak } from '../../components'
 
 const Page: NextPage = () => {
   const { toggleColorScheme } = useMantineColorScheme()
-  useRestrictedArea('fnt')
+  useRestrictedArea('career')
 
   useEffect(() => {
     toggleColorScheme('light')

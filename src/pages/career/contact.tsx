@@ -3,10 +3,10 @@ import { Alert, List, Text } from '@mantine/core'
 
 import { SubTitle } from '../../components'
 import { useRestrictedArea } from '../../hooks'
-import { AlertTriangle, DeviceMobile, Mail } from 'tabler-icons-react'
+import { DeviceMobile, Mail } from 'tabler-icons-react'
 
 const Page: NextPage = () => {
-  useRestrictedArea('fnt')
+  useRestrictedArea('career')
 
   return (
     <>

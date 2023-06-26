@@ -5,7 +5,7 @@ import { Layout, PageTitle, Pod, SubTitle } from '../../components'
 import { useRestrictedArea } from '../../hooks'
 
 const Page: NextPage = () => {
-  const { user, loading } = useRestrictedArea('fnt')
+  const { user, loading } = useRestrictedArea('career')
 
   return (
     <Layout title='Welcome'>
@@ -18,7 +18,7 @@ const Page: NextPage = () => {
           <>
             <PageTitle>{user?.name}</PageTitle>
             <SubTitle>
-              I say a warm welcome to the employee of the company {user?.name}.
+              I say a warm welcome!
               <br />
               Please click the upper right menu button to navigate through
               exclusive content

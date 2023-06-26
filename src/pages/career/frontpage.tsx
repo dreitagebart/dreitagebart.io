@@ -5,7 +5,7 @@ import { handwritingFont } from '../../styles/theme'
 import { useRestrictedArea } from '../../hooks'
 
 const Page: NextPage = () => {
-  useRestrictedArea('fnt')
+  useRestrictedArea('career')
 
   return (
     <>

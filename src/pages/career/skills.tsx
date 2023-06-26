@@ -43,7 +43,7 @@ const useStyles = createStyles((theme) => ({
 }))
 
 const Page: NextPage = () => {
-  const { loading } = useRestrictedArea('fnt')
+  const { loading } = useRestrictedArea('career')
   const { classes } = useStyles()
 
   return (

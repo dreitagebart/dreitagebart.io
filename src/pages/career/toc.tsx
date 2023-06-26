@@ -6,7 +6,7 @@ import { PageBreak } from '../../components'
 import { useRestrictedArea } from '../../hooks'
 
 const Page: NextPage = () => {
-  useRestrictedArea('fnt')
+  useRestrictedArea('career')
 
   return (
     <>

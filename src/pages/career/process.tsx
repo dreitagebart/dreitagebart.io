@@ -27,7 +27,7 @@ const getLibraries = () => {
 
 const Page: NextPage = () => {
   const libraryItems = useMemo(getLibraries, [])
-  const { loading } = useRestrictedArea('fnt')
+  const { loading } = useRestrictedArea('career')
   const [fullscreen, setFullscreen] = useState(false)
   const [Excalidraw, setExcalidraw] = useState<FC<ExcalidrawProps> | null>(null)
 
