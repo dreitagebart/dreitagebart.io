@@ -1,9 +1,9 @@
-import { createStyles, rem, Table } from '@mantine/core'
-import { Badge } from '@mantine/core'
-import { Center, Loader } from '@mantine/core'
-import { NextPage } from 'next'
-import { Heart, Star } from 'tabler-icons-react'
-import { List } from '@mantine/core'
+import { createStyles, rem, Table } from "@mantine/core";
+import { Badge } from "@mantine/core";
+import { Center, Loader } from "@mantine/core";
+import { NextPage } from "next";
+import { Heart, Star } from "tabler-icons-react";
+import { List } from "@mantine/core";
 
 import {
   Heading,
@@ -11,46 +11,46 @@ import {
   PageBreak,
   PageTitle,
   Pod,
-  SubTitle
-} from '../../components'
-import { useRestrictedArea } from '../../hooks'
+  SubTitle,
+} from "../../components";
+import { useRestrictedArea } from "../../hooks";
 
 const useStyles = createStyles((theme) => ({
   title: {
     fontSize: rem(34),
     fontWeight: 900,
-    [theme.fn.smallerThan('sm')]: {
-      fontSize: rem(24)
-    }
+    [theme.fn.smallerThan("sm")]: {
+      fontSize: rem(24),
+    },
   },
   description: {
     maxWidth: 600,
-    margin: 'auto',
-    '&::after': {
+    margin: "auto",
+    "&::after": {
       content: '""',
-      display: 'block',
+      display: "block",
       backgroundColor: theme.fn.primaryColor(),
       width: rem(45),
       height: rem(2),
       marginTop: theme.spacing.sm,
-      marginLeft: 'auto',
-      marginRight: 'auto'
-    }
+      marginLeft: "auto",
+      marginRight: "auto",
+    },
   },
   remark: {
-    fontStyle: 'italic'
-  }
-}))
+    fontStyle: "italic",
+  },
+}));
 
 const Page: NextPage = () => {
-  const { loading } = useRestrictedArea('career')
-  const { classes } = useStyles()
+  const { loading } = useRestrictedArea("career");
+  const { classes } = useStyles();
 
   return (
-    <Layout title='Skills'>
+    <Layout title="Skills">
       {loading ? (
-        <Center px='xl'>
-          <Loader size='xl'></Loader>
+        <Center px="xl">
+          <Loader size="xl"></Loader>
         </Center>
       ) : (
         <Pod>
@@ -60,7 +60,7 @@ const Page: NextPage = () => {
             levels, nevertheless this page should give you a rough overview of
             my skills and knowledge.
           </SubTitle>
-          <Heading id='languages'>Languages</Heading>
+          <Heading id="languages">Languages</Heading>
           <Table>
             <thead>
               <tr>
@@ -73,49 +73,49 @@ const Page: NextPage = () => {
               <tr>
                 <td>JavaScript/TypeScript</td>
                 <td>
-                  <Badge color='green'>expert</Badge>
+                  <Badge color="green">expert</Badge>
                 </td>
                 <td className={classes.remark}></td>
               </tr>
               <tr>
                 <td>HTML</td>
                 <td>
-                  <Badge color='green'>expert</Badge>
+                  <Badge color="green">expert</Badge>
                 </td>
                 <td className={classes.remark}></td>
               </tr>
               <tr>
                 <td>CSS</td>
                 <td>
-                  <Badge color='green'>expert</Badge>
+                  <Badge color="green">expert</Badge>
                 </td>
                 <td className={classes.remark}></td>
               </tr>
               <tr>
                 <td>ABAP</td>
                 <td>
-                  <Badge color='green'>expert</Badge>
+                  <Badge color="green">expert</Badge>
                 </td>
                 <td className={classes.remark}></td>
               </tr>
               <tr>
                 <td>Rust</td>
                 <td>
-                  <Badge color='yellow'>beginner</Badge>
+                  <Badge color="yellow">beginner</Badge>
                 </td>
                 <td className={classes.remark}>Learning and experimenting</td>
               </tr>
               <tr>
                 <td>Go</td>
                 <td>
-                  <Badge color='yellow'>beginner</Badge>
+                  <Badge color="yellow">beginner</Badge>
                 </td>
                 <td className={classes.remark}>Learning and experimenting</td>
               </tr>
               <tr>
                 <td>Markdown</td>
                 <td>
-                  <Badge color='blue'>proficient</Badge>
+                  <Badge color="blue">proficient</Badge>
                 </td>
                 <td className={classes.remark}>
                   I know it&apos;s not that hard
@@ -124,7 +124,7 @@ const Page: NextPage = () => {
               <tr>
                 <td>SQL / RDBMS</td>
                 <td>
-                  <Badge color='blue'>proficient</Badge>
+                  <Badge color="blue">proficient</Badge>
                 </td>
                 <td className={classes.remark}>
                   There are many flavours out there, so it depends... But I
@@ -134,7 +134,7 @@ const Page: NextPage = () => {
               <tr>
                 <td>NoSQL</td>
                 <td>
-                  <Badge color='blue'>proficient</Badge>
+                  <Badge color="blue">proficient</Badge>
                 </td>
                 <td className={classes.remark}>
                   I have not used it much in the past
@@ -143,7 +143,7 @@ const Page: NextPage = () => {
               <tr>
                 <td>PHP</td>
                 <td>
-                  <Badge color='gray'>no longer used</Badge>
+                  <Badge color="gray">no longer used</Badge>
                 </td>
                 <td className={classes.remark}>
                   I don&apos;t actively use this language anymore, but I am able
@@ -153,7 +153,7 @@ const Page: NextPage = () => {
             </tbody>
           </Table>
           <PageBreak></PageBreak>
-          <Heading mt='xl' id='software'>
+          <Heading mt="xl" id="software">
             Frameworks / Libraries / Technologies
           </Heading>
           <SubTitle>
@@ -161,10 +161,10 @@ const Page: NextPage = () => {
             in principle, but also master.
           </SubTitle>
           <List
-            spacing='xs'
-            size='sm'
+            spacing="xs"
+            size="sm"
             center
-            icon={<Star size='1rem' color='cyan' />}
+            icon={<Star size="1rem" color="cyan" />}
           >
             <List.Item>React</List.Item>
             <List.Item>NextJS / SSR / SSG</List.Item>
@@ -181,16 +181,19 @@ const Page: NextPage = () => {
             <List.Item>Raspberry Pi</List.Item>
           </List>
           <PageBreak></PageBreak>
-          <Heading mt='xl' id='software'>
+          <Heading mt="xl" id="software">
             Some notable software and platforms
           </Heading>
           <List
-            spacing='xs'
-            size='sm'
+            spacing="xs"
+            size="sm"
             center
-            icon={<Star size='1rem' color='cyan' />}
+            icon={<Star size="1rem" color="cyan" />}
           >
-            <List.Item>Microsoft Azure DevOps</List.Item>
+            <List.Item>
+              Microsoft Azure DevOps (Azure DevOps Services Application Manager
+              at WITTENSTEIN SE)
+            </List.Item>
             <List.Item>JIRA / Confluence</List.Item>
             <List.Item>Gitlab</List.Item>
             <List.Item>Vercel</List.Item>
@@ -199,14 +202,14 @@ const Page: NextPage = () => {
             <List.Item>SAP ERP</List.Item>
             <List.Item>Microsoft 365 / Libre Office</List.Item>
           </List>
-          <Heading mt='xl' id='software'>
+          <Heading mt="xl" id="software">
             Things I like
           </Heading>
           <List
-            spacing='xs'
-            size='sm'
+            spacing="xs"
+            size="sm"
             center
-            icon={<Heart size='1rem' color='cyan' />}
+            icon={<Heart size="1rem" color="cyan" />}
           >
             <List.Item>I am passionate about software development</List.Item>
             <List.Item>
@@ -228,7 +231,7 @@ const Page: NextPage = () => {
         </Pod>
       )}
     </Layout>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;
