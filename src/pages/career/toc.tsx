@@ -1,20 +1,20 @@
-import { NextPage } from 'next'
-import { List } from '@mantine/core'
-import { ArrowNarrowRight } from 'tabler-icons-react'
+import { NextPage } from "next";
+import { List } from "@mantine/core";
+import { IconArrowNarrowRight } from "@tabler/icons-react";
 
-import { PageBreak } from '../../components'
-import { useRestrictedArea } from '../../hooks'
+import { PageBreak } from "../../components";
+import { useRestrictedArea } from "../../hooks";
 
 const Page: NextPage = () => {
-  useRestrictedArea('career')
+  useRestrictedArea("career");
 
   return (
     <>
       <List
-        icon={<ArrowNarrowRight></ArrowNarrowRight>}
+        icon={<IconArrowNarrowRight></IconArrowNarrowRight>}
         withPadding
-        spacing='lg'
-        fz='lg'
+        spacing="lg"
+        fz="lg"
         center
       >
         <List.Item>Introduction</List.Item>
@@ -26,7 +26,7 @@ const Page: NextPage = () => {
       </List>
       <PageBreak></PageBreak>
     </>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

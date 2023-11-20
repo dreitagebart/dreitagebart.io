@@ -1,22 +1,22 @@
-import { Button, Stack, TextInput } from '@mantine/core'
-import { useForm } from '@mantine/form'
-import { NextPage } from 'next'
-import { signIn, SignInResponse, useSession } from 'next-auth/react'
-import { useRouter } from 'next/router'
-import { ChangeEvent, FC, useCallback } from 'react'
-import { Key, Login, User } from 'tabler-icons-react'
+import { Button, Stack, TextInput } from "@mantine/core";
+import { useForm } from "@mantine/form";
+import { NextPage } from "next";
+import { signIn, SignInResponse, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
+import { ChangeEvent, FC, useCallback } from "react";
+import { IconKey, IconLogin, IconUser } from "@tabler/icons-react";
 
-import { Layout, PageTitle, Pod, SubTitle } from '../components'
+import { Layout, PageTitle, Pod, SubTitle } from "../components";
 
 const Page: FC<NextPage> = () => {
-  const router = useRouter()
-  const { status } = useSession()
+  const router = useRouter();
+  const { status } = useSession();
   const { values, onSubmit, setFieldValue } = useForm({
     initialValues: {
-      username: '',
-      password: ''
-    }
-  })
+      username: "",
+      password: "",
+    },
+  });
 
   // if (status === 'authenticated') {
   //   router.push('/')
@@ -24,32 +24,32 @@ const Page: FC<NextPage> = () => {
 
   const handleChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
-      setFieldValue(event.target.name, event.target.value)
+      setFieldValue(event.target.name, event.target.value);
     },
     [setFieldValue]
-  )
+  );
 
   const handleSubmit = useCallback(
     (formValues: typeof values) => {
-      const { username, password } = formValues
+      const { username, password } = formValues;
 
-      signIn('credentials', {
+      signIn("credentials", {
         username,
         password,
-        redirect: false
+        redirect: false,
       }).then((response: SignInResponse | undefined) => {
-        debugger
+        debugger;
         if (response && response.ok) {
-          debugger
-          router.push(`/${username}`)
+          debugger;
+          router.push(`/${username}`);
         }
-      })
+      });
     },
     [router]
-  )
+  );
 
   return (
-    <Layout title='Login'>
+    <Layout title="Login">
       <Pod>
         <PageTitle>Login</PageTitle>
         <SubTitle>
@@ -57,42 +57,42 @@ const Page: FC<NextPage> = () => {
         </SubTitle>
         <form onSubmit={onSubmit(handleSubmit)}>
           <Stack
-            spacing='xl'
+            spacing="xl"
             maw={420}
-            p='xl'
+            p="xl"
             sx={(theme) => ({
               borderRadius: theme.radius.md,
               backgroundColor:
-                theme.colorScheme === 'light'
+                theme.colorScheme === "light"
                   ? theme.colors.spin[0]
-                  : theme.colors.spin[8]
+                  : theme.colors.spin[8],
             })}
           >
             <TextInput
-              icon={<User></User>}
-              size='md'
-              placeholder='Username'
-              name='username'
+              icon={<IconUser></IconUser>}
+              size="md"
+              placeholder="Username"
+              name="username"
               value={values.username}
               onChange={handleChange}
             ></TextInput>
             <TextInput
-              type='password'
-              icon={<Key></Key>}
-              size='md'
-              placeholder='Password'
-              name='password'
+              type="password"
+              icon={<IconKey></IconKey>}
+              size="md"
+              placeholder="Password"
+              name="password"
               value={values.password}
               onChange={handleChange}
             ></TextInput>
-            <Button leftIcon={<Login></Login>} type='submit'>
+            <Button leftIcon={<IconLogin></IconLogin>} type="submit">
               Login
             </Button>
           </Stack>
         </form>
       </Pod>
     </Layout>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

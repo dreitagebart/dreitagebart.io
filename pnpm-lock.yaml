@@ -41,6 +41,9 @@ dependencies:
   '@next/mdx':
     specifier: ^13.2.1
     version: 13.5.6(@mdx-js/loader@2.3.0)(@mdx-js/react@2.3.0)
+  '@tabler/icons-react':
+    specifier: ^2.41.0
+    version: 2.41.0(react@18.2.0)
   '@types/mjml':
     specifier: ^4.7.0
     version: 4.7.4
@@ -104,9 +107,6 @@ dependencies:
   sharp:
     specifier: ^0.31.3
     version: 0.31.3
-  tabler-icons-react:
-    specifier: ^1.56.0
-    version: 1.56.0(react@18.2.0)
   typescript:
     specifier: ^4.9.5
     version: 4.9.5
@@ -877,6 +877,20 @@ packages:
     resolution: {integrity: sha512-E4KcWTpoLHqwPHLxidpOqQbcrZVgi0rsmmZXUle1jXmJfuIf/UWpczUJ7MZZ5tlxytgJXyp0w4PGkkeLiuIdZw==}
     dependencies:
       tslib: 2.6.2
+    dev: false
+
+  /@tabler/icons-react@2.41.0(react@18.2.0):
+    resolution: {integrity: sha512-y99lqtgxsJs7VQubVtd9XN3h8sVSuAzWI8J1CJxBOAQeLHU6Ybyfbg8O0G+w0Ub8ZKS27mfn5yHli+YPfmXhiQ==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@tabler/icons': 2.41.0
+      prop-types: 15.8.1
+      react: 18.2.0
+    dev: false
+
+  /@tabler/icons@2.41.0:
+    resolution: {integrity: sha512-n7a4Qx/Narn4thV/FxnWb0GoOSGdFTA5ZRLuvgshXn3YxwP0Z7KLzgQ5tQs1gpwdNF5f+HI3dhVTfv/ZG6Zahw==}
     dev: false
 
   /@types/acorn@4.0.6:
@@ -5566,14 +5580,6 @@ packages:
 
   /tabbable@6.2.0:
     resolution: {integrity: sha512-Cat63mxsVJlzYvN51JmVXIgNoUokrIaT2zLclCXjRd8boZ0004U4KCs/sToJ75C6sdlByWxpYnb5Boif1VSFew==}
-    dev: false
-
-  /tabler-icons-react@1.56.0(react@18.2.0):
-    resolution: {integrity: sha512-FOme3w6PJIWDpeXqQ4xjArQqdxzrr9xNy7PSSgWpRzOUQ71RyZ7jt6WThsfyLBz5os78TPJRA8f/0NLjnKcx9A==}
-    peerDependencies:
-      react: '>= 16.8.0'
-    dependencies:
-      react: 18.2.0
     dev: false
 
   /tapable@2.2.1:

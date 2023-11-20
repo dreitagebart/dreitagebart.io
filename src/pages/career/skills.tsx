@@ -1,8 +1,17 @@
-import { createStyles, rem, Table } from "@mantine/core";
+import { createStyles, rem, Table, Text } from "@mantine/core";
 import { Badge } from "@mantine/core";
 import { Center, Loader } from "@mantine/core";
 import { NextPage } from "next";
-import { Heart, Star } from "tabler-icons-react";
+import {
+  IconAffiliate,
+  IconBuildingLighthouse,
+  IconBulb,
+  IconHeart,
+  IconMessage,
+  IconProgressX,
+  IconSchool,
+  IconStar,
+} from "@tabler/icons-react";
 import { List } from "@mantine/core";
 
 import {
@@ -153,7 +162,7 @@ const Page: NextPage = () => {
             </tbody>
           </Table>
           <PageBreak></PageBreak>
-          <Heading mt="xl" id="software">
+          <Heading mt="xl" id="frameworks">
             Frameworks / Libraries / Technologies
           </Heading>
           <SubTitle>
@@ -164,7 +173,7 @@ const Page: NextPage = () => {
             spacing="xs"
             size="sm"
             center
-            icon={<Star size="1rem" color="cyan" />}
+            icon={<IconStar size="1rem" color="cyan" />}
           >
             <List.Item>React</List.Item>
             <List.Item>NextJS / SSR / SSG</List.Item>
@@ -181,35 +190,95 @@ const Page: NextPage = () => {
             <List.Item>Raspberry Pi</List.Item>
           </List>
           <PageBreak></PageBreak>
-          <Heading mt="xl" id="software">
+          <Heading mt="xl" id="softwareplatforms">
             Some notable software and platforms
           </Heading>
           <List
             spacing="xs"
             size="sm"
             center
-            icon={<Star size="1rem" color="cyan" />}
+            icon={<IconStar size="1rem" color="cyan" />}
           >
             <List.Item>
               Microsoft Azure DevOps (Azure DevOps Services Application Manager
-              at WITTENSTEIN SE)
+              @ WITTENSTEIN SE)
             </List.Item>
             <List.Item>JIRA / Confluence</List.Item>
-            <List.Item>Gitlab</List.Item>
+            <List.Item>Gitlab / Github</List.Item>
             <List.Item>Vercel</List.Item>
-            <List.Item>Github</List.Item>
             <List.Item>Visual Studio Code</List.Item>
             <List.Item>SAP ERP</List.Item>
             <List.Item>Microsoft 365 / Libre Office</List.Item>
           </List>
-          <Heading mt="xl" id="software">
+          <Heading mt="xl" id="softskills">
+            My soft skills
+          </Heading>
+          <List
+            spacing="xs"
+            size="sm"
+            center
+            icon={<IconHeart size="1rem" color="cyan" />}
+          >
+            <List.Item icon={<IconMessage></IconMessage>}>
+              <Text fw="bold">Communication</Text>
+              <Text>
+                I have excellent communication skills. I am able to clearly and
+                concisely convey my ideas to others, both verbally and in
+                writing. I am also a good listener and I am able to ask
+                clarifying questions to ensure that I understand what others are
+                saying.
+              </Text>
+            </List.Item>
+            <List.Item icon={<IconAffiliate></IconAffiliate>}>
+              <Text fw="bold">Teamwork</Text>
+              <Text>
+                I am a team player. I am able to work collaboratively with
+                others to achieve common goals. I am also able to share ideas
+                and compromise when necessary.
+              </Text>
+            </List.Item>
+            <List.Item icon={<IconSchool></IconSchool>}>
+              <Text fw="bold">Teaching</Text>
+              <Text>
+                Teaching is not merely a profession for me - it is a calling. I
+                have a deep-seated passion for imparting knowledge, inspiring a
+                love of learning and encouraging the exploration of new
+                technologies. Fun fact: Some of my colleagues asked me why I do
+                not work as a teacher at school.
+              </Text>
+            </List.Item>
+            <List.Item icon={<IconProgressX></IconProgressX>}>
+              <Text fw="bold">Problem-solving</Text>
+              <Text>
+                I am a strong problem-solver. I am able to identify problems,
+                analyze them, and develop solutions. I am also able to think
+                creatively and take risks when necessary.
+              </Text>
+            </List.Item>
+            <List.Item icon={<IconBulb></IconBulb>}>
+              <Text fw="bold">Creativity</Text>
+              <Text>
+                I am creative. I am able to generate new ideas and solutions. I
+                am also able to think outside the box and take risks.
+              </Text>
+            </List.Item>
+            <List.Item icon={<IconBuildingLighthouse></IconBuildingLighthouse>}>
+              <Text fw="bold">Leadership</Text>
+              <Text>
+                I am a leader. I am able to motivate and inspire others to
+                achieve common goals. I am also able to set a vision and
+                delegate tasks effectively.
+              </Text>
+            </List.Item>
+          </List>
+          <Heading mt="xl" id="thingsilike">
             Things I like
           </Heading>
           <List
             spacing="xs"
             size="sm"
             center
-            icon={<Heart size="1rem" color="cyan" />}
+            icon={<IconHeart size="1rem" color="cyan" />}
           >
             <List.Item>I am passionate about software development</List.Item>
             <List.Item>

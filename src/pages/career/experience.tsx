@@ -11,7 +11,7 @@ import {
   Title,
 } from "@mantine/core";
 import { NextPage } from "next";
-import { LayersLinked } from "tabler-icons-react";
+import { IconLayersLinked } from "@tabler/icons-react";
 
 import {
   Heading,
@@ -384,7 +384,7 @@ const Page: NextPage = () => {
                       },
                     }}
                   >
-                    <LayersLinked size={36}></LayersLinked>
+                    <IconLayersLinked size={36}></IconLayersLinked>
                     <Text fz="lg" fw={700}>
                       Experience / Highlights
                     </Text>

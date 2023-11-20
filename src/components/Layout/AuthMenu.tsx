@@ -1,36 +1,32 @@
-import { Text, UnstyledButton } from '@mantine/core'
-import { Avatar, Menu } from '@mantine/core'
-import { signOut, useSession } from 'next-auth/react'
-import Link from 'next/link'
-import { FC } from 'react'
+import { Text, UnstyledButton } from "@mantine/core";
+import { Avatar, Menu } from "@mantine/core";
+import { signOut, useSession } from "next-auth/react";
+import Link from "next/link";
+import { FC } from "react";
 import {
-  ActivityHeartbeat,
-  Album,
-  ArrowAutofitRight,
-  ChartTreemap,
-  Logout,
-  Stack2
-} from 'tabler-icons-react'
+  IconActivityHeartbeat,
+  IconAlbum,
+  IconArrowAutofitRight,
+  IconChartTreemap,
+  IconLogout,
+  IconStack2,
+} from "@tabler/icons-react";
 
 interface Props {}
 
 export const AuthMenu: FC<Props> = () => {
-  const { data: session, status } = useSession()
+  const { data: session, status } = useSession();
 
-  return status === 'authenticated' ? (
+  return status === "authenticated" ? (
     <Menu
-      trigger='click'
-      transitionProps={{ transition: 'scale-y' }}
-      position='bottom-end'
+      trigger="click"
+      transitionProps={{ transition: "scale-y" }}
+      position="bottom-end"
       width={240}
       withinPortal
     >
       <Menu.Target>
-        <Avatar
-          sx={{ cursor: 'pointer' }}
-          size='lg'
-        
-        >
+        <Avatar sx={{ cursor: "pointer" }} size="lg">
           <Text fz={14}>{session.user.username}</Text>
         </Avatar>
       </Menu.Target>
@@ -38,7 +34,7 @@ export const AuthMenu: FC<Props> = () => {
         <Menu.Label>
           logged in as <b>{session.user?.name}</b>
         </Menu.Label>
-        <Menu.Item icon={<ChartTreemap></ChartTreemap>}>
+        <Menu.Item icon={<IconChartTreemap></IconChartTreemap>}>
           <UnstyledButton
             component={Link}
             href={`/${session.user?.username}/biography`}
@@ -46,7 +42,7 @@ export const AuthMenu: FC<Props> = () => {
             <Text>Biography</Text>
           </UnstyledButton>
         </Menu.Item>
-        <Menu.Item icon={<Album></Album>}>
+        <Menu.Item icon={<IconAlbum></IconAlbum>}>
           <UnstyledButton
             component={Link}
             href={`/${session.user?.username}/resume`}
@@ -54,7 +50,7 @@ export const AuthMenu: FC<Props> = () => {
             <Text>Resume</Text>
           </UnstyledButton>
         </Menu.Item>
-        <Menu.Item icon={<ActivityHeartbeat></ActivityHeartbeat>}>
+        <Menu.Item icon={<IconActivityHeartbeat></IconActivityHeartbeat>}>
           <UnstyledButton
             component={Link}
             href={`/${session.user?.username}/experience`}
@@ -62,7 +58,7 @@ export const AuthMenu: FC<Props> = () => {
             <Text>Experience</Text>
           </UnstyledButton>
         </Menu.Item>
-        <Menu.Item icon={<Stack2></Stack2>}>
+        <Menu.Item icon={<IconStack2></IconStack2>}>
           <UnstyledButton
             component={Link}
             href={`/${session.user?.username}/skills`}
@@ -70,19 +66,19 @@ export const AuthMenu: FC<Props> = () => {
             <Text>Skills</Text>
           </UnstyledButton>
         </Menu.Item>
-        <Menu.Item icon={<ArrowAutofitRight></ArrowAutofitRight>}>
+        {/* <Menu.Item icon={<IconArrowAutofitRight></IconArrowAutofitRight>}>
           <UnstyledButton
             component={Link}
             href={`/${session.user?.username}/process`}
           >
             <Text>Process</Text>
           </UnstyledButton>
-        </Menu.Item>
+        </Menu.Item> */}
         <Menu.Divider></Menu.Divider>
-        <Menu.Item icon={<Logout></Logout>} onClick={() => signOut()}>
+        <Menu.Item icon={<IconLogout></IconLogout>} onClick={() => signOut()}>
           Logout
         </Menu.Item>
       </Menu.Dropdown>
     </Menu>
-  ) : null
-}
+  ) : null;
+};

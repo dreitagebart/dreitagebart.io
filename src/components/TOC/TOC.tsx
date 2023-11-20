@@ -1,110 +1,110 @@
-import Link from 'next/link'
-import { FC } from 'react'
-import { createStyles, Box, Text, Group, rem } from '@mantine/core'
-import { ListSearch } from 'tabler-icons-react'
-import { useSticky } from 'react-use-sticky'
-import { useMediaQuery } from '@mantine/hooks'
+import Link from "next/link";
+import { FC } from "react";
+import { createStyles, Box, Text, Group, rem } from "@mantine/core";
+import { IconListSearch } from "@tabler/icons-react";
+import { useSticky } from "react-use-sticky";
+import { useMediaQuery } from "@mantine/hooks";
 
-import { useScrollSpy } from '../../hooks'
-import { Stack } from '@mantine/core'
+import { useScrollSpy } from "../../hooks";
+import { Stack } from "@mantine/core";
 
-const LINK_HEIGHT = 38
-const INDICATOR_SIZE = 10
-const INDICATOR_OFFSET = (LINK_HEIGHT - INDICATOR_SIZE) / 2
+const LINK_HEIGHT = 38;
+const INDICATOR_SIZE = 10;
+const INDICATOR_OFFSET = (LINK_HEIGHT - INDICATOR_SIZE) / 2;
 
 const useStyles = createStyles((theme) => ({
   link: {
     ...theme.fn.focusStyles(),
-    display: 'block',
-    textDecoration: 'none',
-    color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
+    display: "block",
+    textDecoration: "none",
+    color: theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.black,
     lineHeight: rem(LINK_HEIGHT),
     fontSize: theme.fontSizes.sm,
     height: rem(LINK_HEIGHT),
     borderTopRightRadius: theme.radius.sm,
     borderBottomRightRadius: theme.radius.sm,
     borderLeft: `${rem(2)} solid ${
-      theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2]
+      theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[2]
     }`,
-    '&:hover': {
+    "&:hover": {
       backgroundColor:
-        theme.colorScheme === 'dark'
+        theme.colorScheme === "dark"
           ? theme.colors.dark[6]
-          : theme.colors.gray[0]
-    }
+          : theme.colors.gray[0],
+    },
   },
   linkActive: {
     fontWeight: 500,
     color:
-      theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 3 : 7]
+      theme.colors[theme.primaryColor][theme.colorScheme === "dark" ? 3 : 7],
   },
   links: {
-    position: 'relative'
+    position: "relative",
   },
   indicator: {
-    transition: 'transform 150ms ease',
+    transition: "transform 150ms ease",
     border: `${rem(2)} solid ${
-      theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 3 : 7]
+      theme.colors[theme.primaryColor][theme.colorScheme === "dark" ? 3 : 7]
     }`,
     backgroundColor:
-      theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+      theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
     height: rem(INDICATOR_SIZE),
     width: rem(INDICATOR_SIZE),
     borderRadius: rem(INDICATOR_SIZE),
-    position: 'absolute',
-    left: `calc(-${rem(INDICATOR_SIZE)} / 2 + ${rem(1)})`
-  }
-}))
+    position: "absolute",
+    left: `calc(-${rem(INDICATOR_SIZE)} / 2 + ${rem(1)})`,
+  },
+}));
 
 interface Props {
-  offset?: number
-  links: Array<{ label: string; id: string; order: number }>
+  offset?: number;
+  links: Array<{ label: string; id: string; order: number }>;
 }
 
 export const TOC: FC<Props> = ({ links, offset }) => {
-  const largeScreen = useMediaQuery('(min-width: 48em)', true, {
-    getInitialValueInEffect: false
-  })
-  const [headerBarRef, sticky] = useSticky<HTMLDivElement>()
+  const largeScreen = useMediaQuery("(min-width: 48em)", true, {
+    getInitialValueInEffect: false,
+  });
+  const [headerBarRef, sticky] = useSticky<HTMLDivElement>();
   const { id, index } = useScrollSpy(
     links.map((link) => link.id),
     offset
-  )
-  const { classes, cx } = useStyles()
+  );
+  const { classes, cx } = useStyles();
 
   const items = links.map((item) => (
     <Box
       component={Link}
-      href={`#${item.id.replace('sec-', '')}`}
+      href={`#${item.id.replace("sec-", "")}`}
       key={item.label}
       className={cx(classes.link, { [classes.linkActive]: id === item.id })}
       sx={(theme) => ({
-        paddingLeft: `calc(${item.order} * ${theme.spacing.lg})`
+        paddingLeft: `calc(${item.order} * ${theme.spacing.lg})`,
       })}
     >
       {item.label}
     </Box>
-  ))
+  ));
 
   return (
     <div
       ref={headerBarRef}
       style={{
-        display: largeScreen ? 'block' : 'none',
-        position: 'sticky',
-        top: 20
+        display: largeScreen ? "block" : "none",
+        position: "sticky",
+        top: 20,
       }}
     >
       <Stack
         sx={{
-          '@media print': {
-            display: 'none'
+          "@media print": {
+            display: "none",
           },
-          width: 300
+          width: 300,
         }}
       >
-        <Group mb='md'>
-          <ListSearch size={20}></ListSearch>
+        <Group mb="md">
+          <IconListSearch size={20}></IconListSearch>
           <Text>Table of contents</Text>
         </Group>
         <div className={classes.links}>
@@ -113,12 +113,12 @@ export const TOC: FC<Props> = ({ links, offset }) => {
             style={{
               transform: `translateY(${rem(
                 index * LINK_HEIGHT + INDICATOR_OFFSET
-              )})`
+              )})`,
             }}
           />
           {items}
         </div>
       </Stack>
     </div>
-  )
-}
+  );
+};
