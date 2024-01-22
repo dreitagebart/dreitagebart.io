@@ -1,0 +1,6 @@
+.responsiveContainer {
+  @media (min-width: 800px) {
+    max-width: 600px;
+    background-color: azure;
+  }
+}
