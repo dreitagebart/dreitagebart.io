@@ -1,5 +1,5 @@
 {
-  "name": "dreitagebart_dot_io",
+  "name": "@dreitagebart/core",
   "version": "0.1.0",
   "private": true,
   "scripts": {
