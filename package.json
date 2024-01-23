@@ -1,33 +1,16 @@
 {
   "name": "@dreitagebart/core",
-  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "clean": "turbo run clean",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
-  "dependencies": {
-    "@emotion/react": "^11.10.6",
-    "@emotion/server": "^11.10.0",
-    "@mantine/core": "^5.10.5",
-    "@mantine/form": "^5.10.5",
-    "@mantine/hooks": "^5.10.5",
-    "@mantine/next": "^5.10.5",
-    "@mdx-js/loader": "^2.3.0",
-    "@mdx-js/react": "^2.3.0",
-    "@next/mdx": "^13.2.1",
-    "@types/node": "18.11.18",
-    "@types/react": "18.0.26",
-    "@types/react-dom": "18.0.10",
-    "eslint": "8.31.0",
-    "eslint-config-next": "13.1.1",
-    "gray-matter": "^4.0.3",
-    "next": "^13.2.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tabler-icons-react": "^1.56.0",
-    "typescript": "^4.9.5"
+  "packageManager": "pnpm@8.10.0",
+  "engines": {
+    "node": ">=20"
   }
 }
