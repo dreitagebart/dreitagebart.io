@@ -1,9 +1,12 @@
 import { ResponsiveContainer } from '@components/containers'
 import { NextPage } from 'next'
 
+import Loading from './loading'
+
 const Page: NextPage = () => {
   return (
     <ResponsiveContainer>
+      <Loading></Loading>
       <p>
         Es gibt im Moment in diese Mannschaft, oh, einige Spieler vergessen
         ihnen Profi was sie sind. Ich lese nicht sehr viele Zeitungen, aber ich
