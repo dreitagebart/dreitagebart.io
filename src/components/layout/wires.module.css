@@ -1,0 +1,38 @@
+.wiresLeft {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 420px;
+  height: 560px;
+  z-index: -1;
+}
+
+.wiresRight {
+  position: fixed;
+  bottom: 42px;
+  right: 0;
+  width: 420px;
+  height: 560px;
+  z-index: -3;
+  opacity: 0.4;
+  /* border: 1px solid red; */
+
+  /* &::before {
+    border: 4px solid blue;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 420px;
+    width: 420px;
+    z-index: 40000;
+    background-color: red;
+  } */
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    opacity: 1;
+    width: 320px;
+    height: 460px;
+    z-index: 1000;
+  }
+}

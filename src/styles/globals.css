@@ -1,0 +1,58 @@
+body {
+  background-color: var(--mantine-color-black);
+  /* background-image: radial-gradient(circle, #111111 0%, rgba(0, 0, 0, 0) 64%); */
+  background-image: radial-gradient(circle, #00495330 0%, rgba(0, 0, 0, 0) 64%);
+  /* background-image: linear-gradient(90deg, #111111 0%, rgba(0, 0, 0, 0) 100%); */
+  background-attachment: fixed;
+  color: var(--mantine-color-white);
+
+  @media (min-width: em(750px)) {
+    &::after {
+      content: "";
+      position: fixed;
+      background-image: url("/images/half-back.png");
+      background-position: top right;
+      background-repeat: no-repeat;
+      background-size: 401px 656px;
+      height: 656px;
+      width: 401px;
+      left: 0;
+      bottom: 0;
+      z-index: -1;
+    }
+  }
+}
+
+/* main .mantine-Text-root {
+  color: var(--mantine-color-dark-1);
+} */
+
+.mantine-Menu-dropdown {
+  border: 1px solid var(--mantine-color-brand-filled);
+  background-color: darken(var(--mantine-color-brand-9), 0.8);
+  box-shadow: var(--mantine-shadow-xl);
+}
+
+.mantine-TextInput-input,
+.mantine-PasswordInput-input {
+  font-size: rem(16px);
+  border: 1px solid var(--mantine-color-dark-9);
+  background-color: #000000;
+}
+
+.mantine-AppShell-navbar,
+.mantine-AppShell-header {
+  background-color: transparent;
+  border: none;
+}
+
+@media (max-width: $mantine-breakpoint-sm) {
+  .mantine-Title-root {
+    &[data-order="1"] {
+      font-size: rem(36px);
+    }
+  }
+
+  /* font-size: 1.8rem; */
+  /* border: 1px solid red; */
+}
