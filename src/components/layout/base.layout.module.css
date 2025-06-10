@@ -1,3 +1,17 @@
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  33% {
+    opacity: 0;
+  }
+
+  66% {
+    opacity: 1;
+  }
+}
+
 @keyframes pulse {
   0% {
     opacity: 1;
@@ -53,6 +67,17 @@
   animation-fill-mode: both;
 }
 
+.blink {
+  /* transition: all 0.05s ease; */
+  animation: blink 1s ease infinite;
+  /* animation-fill-mode: both; */
+}
+
+.terminal {
+  letter-spacing: 1px;
+  font-family: var(----mantine-font-family-monospace);
+}
+
 .headerContainer {
   height: 100%;
   padding: 0 var(--mantine-spacing-xl);
@@ -61,11 +86,11 @@
 .headerGroup {
   height: 100%;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
 
-  @media (max-width: $mantine-breakpoint-sm) {
+  /* @media (max-width: $mantine-breakpoint-sm) {
     justify-content: space-between;
-  }
+  } */
 }
 
 .wrapper {

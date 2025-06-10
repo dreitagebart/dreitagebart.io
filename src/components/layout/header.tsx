@@ -18,13 +18,14 @@ import { IconChevronDown, IconLogout } from '@tabler/icons-react'
 import { signOut, useSession } from 'next-auth/react'
 import type { FC } from 'react'
 
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import classes from './base.layout.module.css'
 
 type Props = { toggle: () => void }
 
 export const Header: FC<Props> = ({ toggle }) => {
   const router = useRouter()
+  const pathname = usePathname()
   const { data: session } = useSession()
   const [scroll, scrollTo] = useWindowScroll()
 
@@ -61,7 +62,16 @@ export const Header: FC<Props> = ({ toggle }) => {
                 }
         }}>
         <Group className={classes.headerGroup}>
-          <Burger onClick={toggle} hiddenFrom='sm' />
+          <Group>
+            <Burger onClick={toggle} hiddenFrom='sm' />
+            <Text className={classes.terminal}>
+              <Text className={classes.terminalInput}>&gt;</Text>
+              {`~${pathname}`}
+              <Text className={classes.blink} span>
+                |
+              </Text>
+            </Text>
+          </Group>
           <Menu position='bottom-end' width={240} withinPortal>
             <MenuTarget>
               <Button variant='light' rightSection={<IconChevronDown />}>
